@@ -1,9 +1,9 @@
 
-
 robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/git-extras
 
+# TODO: doc config
 romkatv/powerlevel10k
 
 rupa/z
@@ -11,3 +11,13 @@ rupa/z
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
+
+ptavares/zsh-direnv
+
+# TODO: doc
+zpm-zsh/clipboard
+
+# TODO: doc
+reegnz/jq-zsh-plugin
+
+
