@@ -4,8 +4,12 @@
 # This should be run only the first time nix and zsh is set up
 #
 
+set -ex
+
 # Install Nix
 sh <(curl -L https://nixos.org/nix/install) --no-daemon
+. ~/.nix-profile/etc/profile.d/nix.sh
+
 
 ./packages.sh
 
