@@ -3,7 +3,7 @@ import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, modMask, mod4Mask, noModMask
                                    , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s
-                                   , whenJust
+                                   , screenWorkspace, whenJust, windows
                                    )
 import XMonad.Actions.SpawnOn      (spawnHere)
 import XMonad.Config.Desktop       (desktopConfig)
@@ -60,14 +60,14 @@ manageHooks = composeAll
   where
     wmName = stringProperty "WM_NAME"
 
-layouts = toggleLayouts full (tall ||| twoPane ||| grid ||| streams)
+layouts = toggleLayouts full (tall ||| twoPane ||| grid)
   where
     full    = Full              -- fullscreen
     tall    = Tall 1 0.03 0.5   -- tall
     twoPane = TwoPane 0.03 0.5  -- keep only two windows visible
     grid    = Grid              -- a fair-ish grid, usefull for multiple terminals
-    streams = named "Streams" $ -- keep non-master windows visible, mod+shift+s swaps windows
-      combineTwoP twoPane full grid (Const True)
+    -- streams = named "Streams" $ -- keep non-master windows visible, mod+shift+s swaps windows
+    --  combineTwoP twoPane full grid (Const True)
 
 rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName
 
