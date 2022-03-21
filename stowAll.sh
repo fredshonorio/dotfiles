@@ -11,7 +11,8 @@ fi
 
 
 stow \
-	zsh \
+	git \
+	kitty \
 	sakura \
 	xmonad \
-	kitty
+	zsh

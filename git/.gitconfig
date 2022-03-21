@@ -1,0 +1,27 @@
+[user]
+	email = 2962247+fredshonorio@users.noreply.github.com
+	name = Fred Honorio
+
+[alias]
+	p = push
+	po = push origin
+	co = checkout
+	b = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	last = show -s --format=%B HEAD
+	last-hash = rev-parse HEAD
+	last-hash-short = rev-parse --short HEAD
+	sup = submodule update --init --recursive
+
+[core]
+	editor = code --wait
+[push]
+	default = current
+[merge]
+	tool = meld
+[pull]
+	ff = only
+[diff]
+	tool = meld
+[status]
+	showUntrackedFiles = all
