@@ -1,3 +1,4 @@
+add community/ttf-meslo-nerd-font-powerlevel10k
 https://github.com/99designs/aws-vault
 
 aws-vault 
