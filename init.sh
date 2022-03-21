@@ -10,6 +10,9 @@ set -ex
 sh <(curl -L https://nixos.org/nix/install) --no-daemon
 . ~/.nix-profile/etc/profile.d/nix.sh
 
+# Workaround for nix-env bug https://github.com/NixOS/nixpkgs/issues/163374#issuecomment-1069598111
+echo '""'  > ~/.empty.nix
+NIX_PATH=$NIX_PATH:REPEAT=$HOME/.empty.nix
 
 ./packages.sh
 
