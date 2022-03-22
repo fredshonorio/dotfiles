@@ -39,7 +39,7 @@ mRed        = "#F92672"
 main = do
   xmobarProcess <- spawnPipe "xmobar ~/.xmobarrc"
   xmonad $ desktopConfig
-    { terminal           = "kitty"
+    { terminal           = "wezterm"
     , modMask            = mod4Mask
     , keys               = myKeys <+> keys desktopConfig
     , borderWidth        = 5

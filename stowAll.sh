@@ -16,4 +16,5 @@ stow \
 	sakura \
 	xmonad \
 	xmobar \
+	wezterm \
 	zsh

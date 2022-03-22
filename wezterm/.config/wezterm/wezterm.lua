@@ -1,4 +1,8 @@
+local wezterm = require 'wezterm';
+
 return {
+  font = wezterm.font("MesloLGS NF"),
+  font_size = 12.0,
   exit_behaviour = "Close",
   check_for_updates = false,
   enable_tab_bar = false,
