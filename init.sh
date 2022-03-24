@@ -14,7 +14,9 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 echo '""'  > ~/.empty.nix
 NIX_PATH=$NIX_PATH:REPEAT=$HOME/.empty.nix
 
-./packages.sh
+sudo pacman --needed -S yay
+
+./packagesNixEnv.sh
 
 # Add current zsh (in this nix session) to login shells
 command -v zsh | sudo tee -a /etc/shells
@@ -24,6 +26,7 @@ sudo chsh -s $(which zsh) $USER
 
 ./stowAll.sh
 ./bundleZsh.sh
+./packagesManjaro.sh
 
 echo "You should close this terminal and open a new one now."
 

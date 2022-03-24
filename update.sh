@@ -4,6 +4,7 @@
 # This can be run every time the list of packages and antibody plugins is changed
 #
 
-./packages.sh
+./packagesNixEnv.sh
+./packagesManjaro.sh
 ./stowAll.sh
 ./bundleZsh.sh

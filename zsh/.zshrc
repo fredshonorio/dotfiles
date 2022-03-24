@@ -7,6 +7,9 @@ fi
 
 LC_ALL=en_US.UTF-8
 
+export EDITOR=howl
+export VISUALEDITOR=howl
+
 if [ -e /home/fred/.nix-profile/etc/profile.d/nix.sh ]; then . /home/fred/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 source ~/.zsh_plugins.sh

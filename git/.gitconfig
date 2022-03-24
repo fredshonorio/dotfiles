@@ -14,7 +14,7 @@
 	sup = submodule update --init --recursive
 
 [core]
-	editor = code --wait
+	editor = howl
 [push]
 	default = current
 [merge]

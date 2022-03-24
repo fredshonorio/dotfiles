@@ -5,5 +5,6 @@ nix-env -iA \
 	nixpkgs.glibcLocales \
 	nixpkgs.antibody \
 	nixpkgs.stow \
-	nixpkgs.neovim \
 	nixpkgs.direnv
+
+nix-env --uninstall neovim
