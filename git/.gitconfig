@@ -13,15 +13,24 @@
 	last-hash-short = rev-parse --short HEAD
 	sup = submodule update --init --recursive
 
+# https://github.com/dandavison/delta
 [core]
 	editor = howl
+	pager = delta
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	side-by-side = true
+[interactive]
+	diffFilter = delta --color-only
 [push]
 	default = current
 [merge]
 	tool = meld
+	conflictstyle = diff3
 [pull]
 	ff = only
 [diff]
 	tool = meld
+	colorMoved = default
 [status]
 	showUntrackedFiles = all
