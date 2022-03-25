@@ -12,7 +12,6 @@ first_char=$(hostname | cut -c1)
 
 stow \
 	git \
-	kitty \
 	sakura \
 	xmonad \
 	xmobar \
