@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 #
 # This can be run every time the list of packages and antibody plugins is changed
 #

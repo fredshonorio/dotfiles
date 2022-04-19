@@ -7,6 +7,8 @@ yay --needed -S \
     tig \
     zsh \
     antibody-bin \
+    fzf \
+    zoxide \
     stow \
     direnv \
     terraform \
