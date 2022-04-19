@@ -8,6 +8,8 @@ fi
 export EDITOR=howl
 export VISUALEDITOR=howl
 
+export PATH="$PATH:/home/fred/.local/share/coursier/bin"
+
 source ~/.zsh_plugins.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
