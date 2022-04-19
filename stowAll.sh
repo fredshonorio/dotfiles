@@ -16,4 +16,5 @@ stow \
 	xmonad \
 	xmobar \
 	wezterm \
+	terraform \
 	zsh

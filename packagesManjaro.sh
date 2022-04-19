@@ -8,4 +8,5 @@ yay --needed -S \
     antibody-bin \
     stow \
     direnv \
+    terraform \
     howl
