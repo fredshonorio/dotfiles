@@ -10,8 +10,6 @@ alias c-ps='pssh -h ~/.aws-hosts.txt -i "docker ps -a --format \"table {{.ID}}\t
 # $ i-log <instance-index> <container-substring> [<docker logs options>]
 #alias i-log='ssh "ecs-dev-$1" "docker logs $3 \$(docker ps --format \"{{.Names}}\t{{.ID}}\" | grep $2 | cut -f2)"'
 
-alias gitg='gitahead'
-
 yay-unused() {
     yay -Rns $(yay -Qtdq)
 }

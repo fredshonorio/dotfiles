@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 
 yay --needed -S \
@@ -6,10 +6,19 @@ yay --needed -S \
     git-delta \
     tig \
     zsh \
-    antibody-bin \
     fzf \
     zoxide \
     stow \
     direnv \
     terraform \
     howl
+
+#
+# AUR packages
+#
+
+function yay-needed() {
+    yay -S $(yay -Qi $1 2>&1 >/dev/null | grep "error: package" | grep "was not found" | cut -d"'" -f2 | tr "\n" " ")
+}
+
+yay-needed antibody-bin
