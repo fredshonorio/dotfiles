@@ -20,4 +20,4 @@ zpm-zsh/clipboard
 # TODO: doc
 reegnz/jq-zsh-plugin
 
-
+kevinywlui/zlong_alert.zsh
