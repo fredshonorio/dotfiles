@@ -23,4 +23,5 @@ function yay-needed() {
 
 yay-needed antibody-bin
 yay-needed git-standup-git
+yay-needed google-drive-ocamlfuse-opam
 

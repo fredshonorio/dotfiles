@@ -3,16 +3,24 @@
 set -ex
 
 #
-# This can be run every time the list of packages and antibody plugins is changed
+# This script can be run every time this repository is updated
 #
 
 ./packagesManjaro.sh
 ./stowAll.sh
 
-# Bundle plugins in .zsh_plugins.txt to be loaded by the shell
-# https://getantibody.github.io/usage/
+#
+# Shell
+#
+## Bundle plugins in .zsh_plugins.txt to be loaded by the shell
+## https://getantibody.github.io/usage/
 
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
-# Prepare terraform provider cache
+
+#
+# Terraform
+#
+## Prepare terraform provider cache
+
 mkdir -p ~/.terraform.d/plugin-cache

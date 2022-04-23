@@ -18,3 +18,5 @@ stow \
 	wezterm \
 	terraform \
 	zsh
+
+stow -t / google-drive
