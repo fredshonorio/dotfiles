@@ -19,4 +19,4 @@ stow \
 	terraform \
 	zsh
 
-stow -t / google-drive
+sudo stow -t / google-drive

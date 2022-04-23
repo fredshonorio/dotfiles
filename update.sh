@@ -24,3 +24,11 @@ antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 ## Prepare terraform provider cache
 
 mkdir -p ~/.terraform.d/plugin-cache
+
+
+#
+# Google Drive
+#
+## Prepare directory
+
+mkdir -p ~/google-drive
