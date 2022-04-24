@@ -31,4 +31,4 @@ mkdir -p ~/.terraform.d/plugin-cache
 #
 ## Prepare directory
 
-mkdir -p ~/google-drive
+mkdir -p ~/mount/google-drive
