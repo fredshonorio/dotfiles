@@ -34,3 +34,5 @@
 	colorMoved = default
 [status]
 	showUntrackedFiles = all
+[init]
+	defaultBranch = main
