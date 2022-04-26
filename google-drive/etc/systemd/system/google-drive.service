@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=fred
 Group=fred
-ExecStart=/usr/bin/google-drive-ocamlfuse -label default /home/fred/mount/google-drive
-ExecStop=fusermount -u /home/fred/mount/google-drive
+ExecStart=/usr/bin/google-drive-ocamlfuse -label default /home/fred/mount/Obsidian
+ExecStop=fusermount -u /home/fred/mount/Obsidian
 Restart=always
 Type=forking
 

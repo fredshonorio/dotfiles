@@ -31,4 +31,4 @@ mkdir -p ~/.terraform.d/plugin-cache
 #
 ## Prepare directory
 
-mkdir -p ~/mount/google-drive
+mkdir -p ~/mount/Obsidian
