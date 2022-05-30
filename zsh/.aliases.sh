@@ -43,3 +43,12 @@ standup() {
     git standup -s $ARG_D -a $AUTHOR -w "seg"
     cd -
 }
+
+# mod-init <module-name> <root-package>
+mod-init() {
+  [ "-z" "$1" ] && echo "Missing <module-name> and <root-package\n\nUsage: mod-init <module-name> <root-package>" && return -1
+  [ "-z" "$2" ] && echo "Missing <root-package\n\nUsage: mod-init <module-name> <root-package>" && return -1
+  mkdir -p modules/$1/src/main/scala/$2
+  mkdir -p modules/$1/src/test/scala/$2
+  mkdir -p modules/$1/src/it/scala/$2
+}
