@@ -26,3 +26,4 @@ yay-needed antibody-bin
 yay-needed git-standup-git
 yay-needed google-drive-ocamlfuse-opam
 yay-needed pacman-cleanup-hook
+yay-needed xmonad-recompile-pacman-hook-git
