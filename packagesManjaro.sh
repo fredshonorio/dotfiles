@@ -9,6 +9,7 @@ yay --needed -S \
     fzf \
     zoxide \
     stow \
+    nvm \
     direnv \
     terraform \
     howl

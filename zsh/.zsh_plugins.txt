@@ -4,6 +4,7 @@ robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/git-extras
 robbyrussell/oh-my-zsh path:plugins/zoxide
+robbyrussell/oh-my-zsh path:plugins/nvm
 
 # TODO: doc config
 romkatv/powerlevel10k
