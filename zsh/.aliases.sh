@@ -16,8 +16,9 @@ yay-unused() {
 
 alias tpx='terraform plan -out x'
 alias tax='terraform apply x'
+alias tfmt='terraform fmt -recursive'
 
-alias flx='amm ~/meshapp/aws-tools/scripts/deploy.sc'
+alias flx='java -jar /home/fred/meshapp/flx/target/fat-jar/flx.jar'
 
 
 # standup [<n-days>]
