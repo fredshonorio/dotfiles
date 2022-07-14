@@ -4,10 +4,11 @@ set -ex
 
 first_char=$(hostname | cut -c1)
 
-#if [ "$first_char" = "w" ]; then
-#	stow \
-#		xmobar-desktop
-#fi
+# laptop stuff
+if [ "$first_char" = "l" ]; then
+	sudo stow -t / disable-caps-lock
+	stow xbindkeys-laptop
+fi
 
 
 stow \

@@ -1,0 +1,5 @@
+# caps lock invokes playerctl play-pause
+
+"playerctl play-pause"
+    m:0x12 + c:66
+    Mod2 + Caps_Lock

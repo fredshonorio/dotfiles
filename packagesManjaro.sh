@@ -12,7 +12,8 @@ yay --needed -S \
     nvm \
     direnv \
     terraform \
-    howl
+    howl \
+    xbindkeys
 
 #
 # AUR packages
