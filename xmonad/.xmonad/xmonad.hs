@@ -69,7 +69,9 @@ layouts = toggleLayouts full (tall ||| twoPane ||| grid)
     -- streams = named "Streams" $ -- keep non-master windows visible, mod+shift+s swaps windows
     --  combineTwoP twoPane full grid (Const True)
 
-rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName
+-- https://xmonad.github.io/xmonad-docs/xmonad-contrib/src/XMonad.Actions.WindowBringer.html
+rofiCfg :: WindowBringerConfig
+rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName (\_ -> return True)
 
 myKeys (XConfig {modMask = mod}) = M.fromList $
     [ ((mod,               xK_p), spawn "rofi -show run -modi run")
