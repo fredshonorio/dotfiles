@@ -18,6 +18,7 @@ stow \
 	xmobar \
 	wezterm \
 	terraform \
-	zsh
+	zsh \
+    autostart
 
 sudo stow -t / google-drive

@@ -13,7 +13,9 @@ yay --needed -S \
     direnv \
     terraform \
     howl \
-    xbindkeys
+    xbindkeys \
+    signal-desktop \
+    discord
 
 #
 # AUR packages
