@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export EDITOR=howl
-export VISUALEDITOR=howl
+export VISUAL=howl
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export PATH="$PATH:/home/fred/.local/share/coursier/bin"
 
