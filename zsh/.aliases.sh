@@ -25,6 +25,19 @@ alias flx='java -jar /home/fred/meshapp/flx/target/fat-jar/flx.jar'
 
 alias list-sbt='jps | grep sbt-launch.jar | cut -f 1 -d " " | xargs pwdx'
 
+# kill a java process
+jpsk() {
+    jps -l | awk '{
+        # run pwdx for the first column, write the output to `wd`
+        cmd = "pwdx "$1
+        cmd | getline wd
+        close(cmd)
+        # pwdx prefixes the working directory with the pid, like "1234: /home/john", we remove it (modifying `wd` in-place)
+        sub("[0-9]+: ", "", wd)
+        # then append wd to the jps output
+        print $0  " [" wd "]"
+    }' | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null
+}
 
 # standup [<n-days>]
 standup() {
