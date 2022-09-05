@@ -1,42 +1,42 @@
 [user]
-	email = 2962247+fredshonorio@users.noreply.github.com
-	name = Fred Honorio
+  email = 2962247+fredshonorio@users.noreply.github.com
+  name = Fred Honorio
 
 [alias]
-	p = push
-	po = push origin
-	co = checkout
-	b = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
-	last = show -s --format=%B HEAD
-	last-hash = rev-parse HEAD
-	last-hash-short = rev-parse --short HEAD
-	sup = submodule update --init --recursive
-	bd = "!zsh ~/.bin/git-branch-delete-fzf.zsh"
+  p = push
+  po = push origin
+  co = checkout
+  b = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+  last = show -s --format=%B HEAD
+  last-hash = rev-parse HEAD
+  last-hash-short = rev-parse --short HEAD
+  sup = submodule update --init --recursive
+  bd = "!zsh ~/.bin/git-branch-delete-fzf.zsh"
 
 # https://github.com/dandavison/delta
 [core]
-	editor = howl
-	pager = delta
+  editor = howl
+  pager = delta
 [delta]
-	navigate = true  # use n and N to move between diff sections
-	side-by-side = true
+  navigate = true  # use n and N to move between diff sections
+  side-by-side = true
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [push]
-	default = current
+  default = current
 [fetch]
-	# remove invalid references to remote branches that are missing
-	prune = true
+  # remove invalid references to remote branches that are missing
+  prune = true
 [merge]
-	tool = meld
-	conflictstyle = diff3
+  tool = meld
+  conflictstyle = diff3
 [pull]
-	ff = only
+  ff = only
 [diff]
-	tool = meld
-	colorMoved = default
+  tool = meld
+  colorMoved = default
 [status]
-	showUntrackedFiles = all
+  showUntrackedFiles = all
 [init]
-	defaultBranch = main
+  defaultBranch = main
