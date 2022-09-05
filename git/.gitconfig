@@ -12,6 +12,7 @@
 	last-hash = rev-parse HEAD
 	last-hash-short = rev-parse --short HEAD
 	sup = submodule update --init --recursive
+	bd = "!zsh ~/.bin/git-branch-delete-fzf.zsh"
 
 # https://github.com/dandavison/delta
 [core]

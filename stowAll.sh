@@ -19,6 +19,7 @@ stow \
 	wezterm \
 	terraform \
 	zsh \
+	user-bin \
     autostart
 
 sudo stow -t / google-drive
