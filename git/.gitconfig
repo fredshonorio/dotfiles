@@ -25,6 +25,9 @@
 	diffFilter = delta --color-only
 [push]
 	default = current
+[fetch]
+	# remove invalid references to remote branches that are missing
+	prune = true
 [merge]
 	tool = meld
 	conflictstyle = diff3
