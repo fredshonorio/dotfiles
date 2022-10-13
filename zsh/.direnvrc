@@ -1,0 +1,10 @@
+#
+# This integrates nvm with direnv so that in .envrc you can do
+# `use nodejs 14`
+#
+use_nodejs() {
+    NODE_VERSION="$1"
+
+    type nvm >/dev/null 2>&1 || . ~/.nvm/nvm.sh
+    nvm use "$NODE_VERSION"
+}
