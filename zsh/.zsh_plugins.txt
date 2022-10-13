@@ -36,3 +36,6 @@ reegnz/jq-zsh-plugin
 
 # add hooks into zsh so that it shows a notification when a long running (15 seconds) process ends
 kevinywlui/zlong_alert.zsh
+
+# use zsh when running `$ nix-shell`
+chisui/zsh-nix-shell
