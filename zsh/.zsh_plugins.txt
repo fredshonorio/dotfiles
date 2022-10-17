@@ -39,3 +39,6 @@ kevinywlui/zlong_alert.zsh
 
 # use zsh when running `$ nix-shell`
 chisui/zsh-nix-shell
+
+lukechilds/zsh-nvm
+
