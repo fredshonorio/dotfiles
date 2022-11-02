@@ -9,6 +9,7 @@ yay --needed -S \
     fzf \
     zoxide \
     stow \
+    earlyoom \
     nvm \
     direnv \
     terraform \
@@ -30,3 +31,15 @@ yay-needed git-standup-git
 yay-needed google-drive-ocamlfuse-opam
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
+
+#
+# services
+#
+
+function systemctl-enable-needed() {
+    if ! systemctl is-enabled $1 | grep enabled; then
+        systemctl enable --now $1
+    fi
+}
+
+systemctl-enable-needed earlyoom
