@@ -10,6 +10,7 @@ yay --needed -S \
     zoxide \
     stow \
     earlyoom \
+    systembus-notify \
     nvm \
     direnv \
     terraform \
