@@ -17,7 +17,8 @@ yay --needed -S \
     howl \
     xbindkeys \
     signal-desktop \
-    discord
+    discord \
+    python-pssh # for 'c-ps' alias
 
 #
 # AUR packages
