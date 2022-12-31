@@ -8,6 +8,11 @@ first_char=$(hostname | cut -c1)
 if [ "$first_char" = "l" ]; then
     sudo stow -t / disable-caps-lock
     stow xbindkeys-laptop
+
+    # prevent headphone buzz when no audio is playing
+    sudo stow -t / disable-audio-powersave
+    # systemctl start disable-audio-powersave
+    # systemctl enable disable-audio-powersave
 fi
 
 
