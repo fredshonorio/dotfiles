@@ -29,3 +29,4 @@ stow \
 
 sudo stow -t / google-drive
 sudo stow -t /etc/default earlyoom
+sudo stow -t /etc/systemd/system/docker.service.d docker
