@@ -17,8 +17,7 @@ yay --needed -S \
     howl \
     xbindkeys \
     signal-desktop \
-    discord \
-    python-pssh # for 'c-ps' alias
+    discord
 
 #
 # AUR packages
@@ -33,6 +32,7 @@ yay-needed git-standup-git
 yay-needed google-drive-ocamlfuse-opam
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
+yay-needed python-pssh # for 'c-ps' alias
 
 #
 # services
