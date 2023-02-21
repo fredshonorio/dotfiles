@@ -21,8 +21,6 @@ alias tss='terraform state show'
 alias tsl='terraform state list | grep'
 alias ti='terraform import'
 
-alias flx='java -jar /home/fred/meshapp/flx/target/fat-jar/flx.jar'
-
 alias list-sbt='jps | grep sbt-launch.jar | cut -f 1 -d " " | xargs pwdx'
 
 # kill a java process
