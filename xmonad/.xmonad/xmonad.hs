@@ -51,11 +51,13 @@ main = do
     , manageHook         = manageHooks
     }
 
+-- use $ xwininfo to find the wmName for a window
 manageHooks = composeAll
   [ isFullscreen                --> doFullFloat -- without this vlc doesn't correctly come out of full screen
   , wmName    =? "sakura_float" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "Krita - Edit Text" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , className =? "trayer"       --> doIgnore
+  , wmName    =? "xfce4-notifyd" --> doIgnore
   ]
   where
     wmName = stringProperty "WM_NAME"
