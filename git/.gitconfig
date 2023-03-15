@@ -39,3 +39,7 @@
   showUntrackedFiles = all
 [init]
   defaultBranch = main
+[rebase]
+  autosquash = true
+[fixup]
+  rebase = true
