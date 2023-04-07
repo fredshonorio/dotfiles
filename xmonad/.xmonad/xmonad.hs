@@ -18,8 +18,8 @@ import XMonad.Layout.Grid          (Grid(..))
 import XMonad.Layout.ComboP        (SwapWindow(..), Property(..), combineTwoP)
 import XMonad.Layout.TwoPane       (TwoPane(..))
 import XMonad.Layout.Named         (named)
-import XMonad.Layout.NoBorders     (noBorders)
-import XMonad.Layout.Spacing       (smartSpacing)
+import XMonad.Layout.NoBorders     (noBorders, smartBorders)
+import XMonad.Layout.Spacing       (spacingWithEdge)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
 import XMonad.Operations           (sendMessage, screenWorkspace, windows)
 import XMonad.Util.Run             (spawnPipe, hPutStrLn, safeSpawn)
@@ -102,7 +102,7 @@ layouts = avoidStruts $ toggleLayouts full rest
     tall    = Tall 1 0.03 0.5   -- tall
     twoPane = TwoPane 0.03 0.5  -- keep only two windows visible
     grid    = Grid              -- a fair-ish grid, usefull for multiple terminals
-    rest    = smartSpacing 10 $ (tall ||| twoPane ||| grid) -- add spacing to all layouts except full
+    rest    = smartBorders $ spacingWithEdge 10 $ (tall ||| twoPane ||| grid) -- add spacing to all layouts except full
 
 -- https://xmonad.github.io/xmonad-docs/xmonad-contrib/src/XMonad.Actions.WindowBringer.html
 rofiCfg :: WindowBringerConfig
