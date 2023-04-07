@@ -15,6 +15,10 @@ if [ "$first_char" = "l" ]; then
     # systemctl enable disable-audio-powersave
 fi
 
+# work stuff
+if [ "$first_char" = "w" ]; then
+    sudo stow -t /etc/systemd/system/docker.service.d docker
+fi
 
 stow \
     git \
@@ -29,4 +33,3 @@ stow \
 
 sudo stow -t / google-drive
 sudo stow -t /etc/default earlyoom
-sudo stow -t /etc/systemd/system/docker.service.d docker
