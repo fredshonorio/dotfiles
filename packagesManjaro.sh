@@ -17,6 +17,7 @@ yay --needed -S \
     howl \
     xbindkeys \
     signal-desktop \
+    polybar \
     discord
 
 #
@@ -33,6 +34,9 @@ yay-needed google-drive-ocamlfuse-opam
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed python-pssh # for 'c-ps' alias
+# polybar
+yay-needed xmonad-log # read xmonad status from dbus
+yay-needed siji-ttf   # icons
 
 #
 # services

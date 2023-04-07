@@ -24,7 +24,7 @@ stow \
     git \
     sakura \
     xmonad \
-    xmobar \
+    polybar \
     wezterm \
     terraform \
     zsh \

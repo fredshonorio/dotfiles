@@ -9,7 +9,7 @@ import XMonad.Actions.SpawnOn      (spawnHere)
 import XMonad.Config.Desktop       (desktopConfig)
 import XMonad.Hooks.SetWMName      (setWMName)
 import XMonad.Hooks.FadeInactive   (fadeInactiveLogHook)
-import XMonad.Hooks.DynamicLog     (xmobarPP, xmobarColor, dynamicLogWithPP, PP(..), shorten)
+import XMonad.Hooks.DynamicLog     (dynamicLogWithPP, PP(..), def, wrap)
 import XMonad.Hooks.ManageDocks    (avoidStruts)
 import XMonad.Hooks.ManageHelpers  (doFullFloat, isFullscreen)
 import XMonad.Hooks.Place          (fixed, placeHook)
@@ -26,9 +26,16 @@ import XMonad.Util.Run             (spawnPipe, hPutStrLn, safeSpawn)
 import XMonad.Actions.WindowBringer (WindowBringerConfig(..), gotoMenuConfig)
 import XMonad.StackSet (tag)
 import XMonad.Util.NamedWindows (getName)
-
+import XMonad.Hooks.EwmhDesktops (ewmh)
+-- polybar
+import qualified DBus as D
+import qualified DBus.Client as D
+import qualified Codec.Binary.UTF8.String as UTF8
+--
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
+
+-- https://github.com/xmonad/xmonad/blob/master/TUTORIAL.md
 
 -- monokai theme colors
 mForeground = "#F8F8F2"
@@ -36,27 +43,54 @@ mBackground = "#272822"
 mGreen      = "#A6E22E"
 mRed        = "#F92672"
 
+myTerminal   = "wezterm"
+wallpapers   = "$HOME/Tresors/wallpapers/*"
+startPolybar =  "$HOME/.bin/polybar.sh"
+
 main = do
-  xmobarProcess <- spawnPipe "xmobar ~/.xmobarrc"
-  xmonad $ desktopConfig
-    { terminal           = "wezterm"
+  dbus <- D.connectSession
+  _ <- D.requestName dbus (D.busName_ "org.xmonad.Log") [ D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue ]
+  xmonad $ ewmh $ desktopConfig
+    { terminal           = myTerminal
     , modMask            = mod4Mask
     , keys               = myKeys <+> keys desktopConfig
     , borderWidth        = 5
     , normalBorderColor  = mBackground
     , focusedBorderColor = mRed
     , startupHook        = startup
-    , logHook            = xmobarHook xmobarProcess <+> transparencyHook
+    , logHook            = polybarLogHook dbus <+> transparencyHook
     , layoutHook         = avoidStruts . smartBorders $ layouts
     , manageHook         = manageHooks
     }
+
+polybarLogHook :: D.Client -> X ()
+polybarLogHook dbus = dynamicLogWithPP $ def
+    { ppOutput  = dbusOutput dbus
+    , ppTitle   = \_ -> ""            -- dont't output window title, polybar handles showing it
+    , ppCurrent = polybarColor mRed   -- display current workspace
+    , ppUrgent  = polybarColor mGreen
+    , ppSep     = " ~ "
+    }
+    where
+      polybarColor :: String -> String -> String
+      polybarColor clr = wrap ("%{F" ++ clr ++ "} ") " %{F-}"
+
+      dbusOutput :: D.Client -> String -> IO ()
+      dbusOutput dbus str = do
+          let signal = (D.signal objectPath interfaceName memberName) {
+                  D.signalBody = [D.toVariant $ UTF8.decodeString str]
+              }
+          D.emit dbus signal
+        where
+          objectPath = D.objectPath_ "/org/xmonad/Log"
+          interfaceName = D.interfaceName_ "org.xmonad.Log"
+          memberName = D.memberName_ "Update"
 
 -- use $ xwininfo to find the wmName for a window
 manageHooks = composeAll
   [ isFullscreen                     --> doFullFloat -- without this vlc doesn't correctly come out of full screen
   , wmName    =? "sakura_float"      --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "Krita - Edit Text" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
-  , className =? "trayer"            --> doIgnore
   , wmName    =? "xfce4-notifyd"     --> doIgnore
   ]
   where
@@ -90,21 +124,16 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
       | (key, sc) <- zip [xK_a, xK_s] [0..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-wallpapers = "$HOME/Tresors/wallpapers/*"
 
-startup = setWMName "LG3D"                                          -- required for java apps
-          >> spawnHere ("feh --randomize --bg-center " ++ wallpapers) -- load random wallpaper
+startup =
+  do
+    setWMName "LG3D"                                         -- required for java apps
+    spawnHere ("feh --randomize --bg-center " ++ wallpapers) -- load random wallpaper
+    spawn startPolybar
 
 -- transparency for inactive windows
 transparencyHook = fadeInactiveLogHook 0.97 -- percent
 
-xmobarHook xmobarProc = dynamicLogWithPP $                 -- setup xmonad to output status to xmobar
-  xmobarPP { ppOutput = hPutStrLn xmobarProc               -- write message to xmobar stdin
-           , ppTitle = xmobarColor mGreen "" . shorten 140 -- display window title
-           , ppCurrent = xmobarColor mRed ""               -- display current workspace
-           , ppUrgent = xmobarColor mRed ""
-           , ppSep = " ~ "
-           }
 -- util
 decorateName workspace window = do
   name <- show <$> getName window
