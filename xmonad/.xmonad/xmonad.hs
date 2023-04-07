@@ -10,7 +10,7 @@ import XMonad.Config.Desktop       (desktopConfig)
 import XMonad.Hooks.SetWMName      (setWMName)
 import XMonad.Hooks.FadeInactive   (fadeInactiveLogHook)
 import XMonad.Hooks.DynamicLog     (dynamicLogWithPP, PP(..), def, wrap)
-import XMonad.Hooks.ManageDocks    (avoidStruts)
+import XMonad.Hooks.ManageDocks    (avoidStruts, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers  (doFullFloat, isFullscreen)
 import XMonad.Hooks.Place          (fixed, placeHook)
 import XMonad.Layout               (Full(..), Tall(..))
@@ -18,8 +18,8 @@ import XMonad.Layout.Grid          (Grid(..))
 import XMonad.Layout.ComboP        (SwapWindow(..), Property(..), combineTwoP)
 import XMonad.Layout.TwoPane       (TwoPane(..))
 import XMonad.Layout.Named         (named)
-import XMonad.Layout.NoBorders     (smartBorders)
-import XMonad.Layout.Fullscreen    (fullscreenSupport)
+import XMonad.Layout.NoBorders     (noBorders)
+import XMonad.Layout.Spacing       (smartSpacing)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
 import XMonad.Operations           (sendMessage, screenWorkspace, windows)
 import XMonad.Util.Run             (spawnPipe, hPutStrLn, safeSpawn)
@@ -54,12 +54,12 @@ main = do
     { terminal           = myTerminal
     , modMask            = mod4Mask
     , keys               = myKeys <+> keys desktopConfig
-    , borderWidth        = 5
+    , borderWidth        = 4
     , normalBorderColor  = mBackground
     , focusedBorderColor = mRed
     , startupHook        = startup
     , logHook            = polybarLogHook dbus <+> transparencyHook
-    , layoutHook         = avoidStruts . smartBorders $ layouts
+    , layoutHook         = layouts
     , manageHook         = manageHooks
     }
 
@@ -96,14 +96,13 @@ manageHooks = composeAll
   where
     wmName = stringProperty "WM_NAME"
 
-layouts = toggleLayouts full (tall ||| twoPane ||| grid)
+layouts = avoidStruts $ toggleLayouts full rest
   where
-    full    = Full              -- fullscreen
+    full    = noBorders Full    -- fullscreen
     tall    = Tall 1 0.03 0.5   -- tall
     twoPane = TwoPane 0.03 0.5  -- keep only two windows visible
     grid    = Grid              -- a fair-ish grid, usefull for multiple terminals
-    -- streams = named "Streams" $ -- keep non-master windows visible, mod+shift+s swaps windows
-    --  combineTwoP twoPane full grid (Const True)
+    rest    = smartSpacing 10 $ (tall ||| twoPane ||| grid) -- add spacing to all layouts except full
 
 -- https://xmonad.github.io/xmonad-docs/xmonad-contrib/src/XMonad.Actions.WindowBringer.html
 rofiCfg :: WindowBringerConfig
@@ -118,6 +117,7 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     , ((mod .|. shiftMask, xK_t), spawn "sakura -t sakura_float -r 20 -c 150")
     -- , ((mod .|. shiftMask, xK_s), sendMessage $ SwapWindow)   -- only usable in combineTwoP (streams) layout
     , ((mod              , xK_f), sendMessage $ ToggleLayout) -- toggle fullscreen
+    , ((mod              , xK_b), sendMessage $ ToggleStruts) -- toggle struts
     , ((noModMask        , xK_Print), spawn "xfce4-screenshooter --fullscreen")
     ] ++
     [((m .|. mod, key), screenWorkspace sc >>= flip whenJust (windows . f))
@@ -127,8 +127,8 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
 
 startup =
   do
-    setWMName "LG3D"                                         -- required for java apps
-    spawnHere ("feh --randomize --bg-center " ++ wallpapers) -- load random wallpaper
+    setWMName "LG3D"                                       -- required for java apps
+    spawnHere ("feh --randomize --bg-fill " ++ wallpapers) -- load random wallpaper
     spawn startPolybar
 
 -- transparency for inactive windows
