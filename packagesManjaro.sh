@@ -3,6 +3,7 @@
 
 yay --needed -S \
     ttf-meslo-nerd-font-powerlevel10k \
+    ttf-iosevka-nerd \
     git-delta \
     tig \
     zsh \
