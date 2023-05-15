@@ -31,5 +31,4 @@ stow \
     user-bin \
     autostart
 
-sudo stow -t / google-drive
 sudo stow -t /etc/default earlyoom

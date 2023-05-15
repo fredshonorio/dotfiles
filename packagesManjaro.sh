@@ -5,7 +5,6 @@ yay --needed -S \
     ttf-meslo-nerd-font-powerlevel10k \
     ttf-iosevka-nerd \
     ttf-droid \
-    ttf-font-awesome \
     git-delta \
     tig \
     zsh \
@@ -21,7 +20,8 @@ yay --needed -S \
     xbindkeys \
     signal-desktop \
     polybar \
-    discord
+    discord \
+    syncthing
 
 #
 # AUR packages
@@ -33,7 +33,7 @@ function yay-needed() {
 
 yay-needed antibody-bin
 yay-needed git-standup-git
-yay-needed google-drive-ocamlfuse-opam
+yay-needed syncthingtray
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed python-pssh # for 'c-ps' alias
