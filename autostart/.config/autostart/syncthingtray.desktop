@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Syncthing Tray
+Exec=/bin/bash -c "sleep 10 && /usr/bin/syncthingtray qt-widgets-gui --single-instance"
+Comment=Tray application for Syncthing
+Icon=syncthingtray
+Type=Application
+Terminal=false
+X-GNOME-Autostart-Delay=10
+X-GNOME-Autostart-enabled=true
