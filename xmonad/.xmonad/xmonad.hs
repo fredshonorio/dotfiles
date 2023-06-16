@@ -1,5 +1,5 @@
 import XMonad                      (XConfig(..), X(..), Window, WindowSpace
-                                   , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className
+                                   , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className, appName
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, modMask, mod4Mask, noModMask
                                    , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s
@@ -91,6 +91,7 @@ manageHooks = composeAll
   , wmName    =? "sakura_float"      --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "Krita - Edit Text" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "xfce4-notifyd"     --> doIgnore
+  , appName   =? "copyq"             --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   ]
   where
     wmName = stringProperty "WM_NAME"

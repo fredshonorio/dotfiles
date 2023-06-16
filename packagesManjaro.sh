@@ -18,6 +18,7 @@ yay --needed -S \
     terraform \
     howl \
     xbindkeys \
+    copyq \
     signal-desktop \
     polybar \
     discord \
