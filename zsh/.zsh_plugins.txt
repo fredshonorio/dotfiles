@@ -15,6 +15,8 @@ robbyrussell/oh-my-zsh path:plugins/nvm
 # ctrl+t - search current directory and insert the selected file path in the prompt
 robbyrussell/oh-my-zsh path:plugins/fzf
 
+robbyrussell/oh-my-zsh path:plugins/pipenv
+
 # prompt theme
 romkatv/powerlevel10k
 
