@@ -43,7 +43,7 @@ mGreen      = "#A6E22E"
 mRed        = "#F92672"
 
 myTerminal   = "wezterm"
-wallpapers   = "$HOME/Tresors/wallpapers/*"
+wallpapers   = "$HOME/wallpapers/*"
 startPolybar =  "$HOME/.bin/polybar.sh"
 
 main = do
@@ -111,7 +111,7 @@ rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName (\_ -> return
 myKeys (XConfig {modMask = mod}) = M.fromList $
     [ ((mod,               xK_p), spawn "rofi -show run -modi run")
     , ((mod .|. shiftMask, xK_p), spawn "xfce4-appfinder")
-    , ((mod,               xK_e), spawn "nemo")
+    , ((mod,               xK_e), spawn "thunar")
     , ((mod,               xK_c), gotoMenuConfig rofiCfg)
     , ((mod .|. shiftMask, xK_q), spawn "xfce4-session-logout")
     , ((mod .|. shiftMask, xK_t), spawn "sakura -t sakura_float -r 20 -c 150")

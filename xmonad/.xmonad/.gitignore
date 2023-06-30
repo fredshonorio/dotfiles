@@ -1,0 +1,4 @@
+# by god I don't know why stow is symlinking the whole dir instead of just xmonad.hs
+**
+!xmonad.hs
+!.gitignore
