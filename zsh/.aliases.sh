@@ -37,30 +37,6 @@ jpsk() {
     }' | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null
 }
 
-# standup [<n-days>]
-standup() {
-    # git standup does not respect locales, and compares the value of the current day to "mon" to decide if it should adjust the date filter
-    # it is never "mon" in my system, so on a monday i never see friday's commits
-    # looking at the code it would seem that providing -w with my locale would work, but it doesn't
-
-    # this script adjusts the -d paremeter on a monday, pins the author a cds into a directory
-
-    AUTHOR="Fred Honorio"
-    WORKDIR="/home/fred/meshapp"
-    MONDAY="seg"
-    ARG_D=""
-
-    if [ -n "$1" ]; then
-        ARG_D="-d $1"
-    elif [ "$(date +%a)" = $MONDAY ]; then
-        ARG_D="-d 4" # unsure why 4, 3 would make sense
-    fi
-
-    cd $WORKDIR
-    git standup -s $ARG_D -a $AUTHOR -w "seg"
-    cd -
-}
-
 # mod-init <module-name> <root-package>
 mod-init() {
   [ "-z" "$1" ] && echo "Missing <module-name> and <root-package\n\nUsage: mod-init <module-name> <root-package>" && return -1
