@@ -17,6 +17,9 @@ yay --needed -S \
     nvm \
     direnv \
     xmonad \
+    gitui \
+    tree \
+    gitg \
     the_silver_searcher \
     xmonad-contrib \
     feh \
