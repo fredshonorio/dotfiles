@@ -6,6 +6,7 @@ yay --needed -S \
     ttf-iosevka-nerd \
     ttf-droid \
     git-delta \
+    gitui \
     tig \
     zsh \
     fzf \
@@ -15,6 +16,10 @@ yay --needed -S \
     systembus-notify \
     nvm \
     direnv \
+    xmonad \
+    xmonad-contrib \
+    visual-studio-code-bin \
+    feh \
     terraform \
     howl \
     xbindkeys \
@@ -22,6 +27,10 @@ yay --needed -S \
     signal-desktop \
     polybar \
     discord \
+    wezterm \
+    rofi \
+    bat \
+    obsidian \
     syncthing
 
 #
@@ -36,10 +45,10 @@ yay-needed antibody-bin
 yay-needed syncthingtray
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
-yay-needed python-pssh # for 'c-ps' alias
+# yay-needed python-pssh # for 'c-ps' alias
 # polybar
 yay-needed xmonad-log # read xmonad status from dbus
-yay-needed siji-ttf   # icons
+# yay-needed siji-ttf   # icons -- TODO: see if this is necessary
 
 #
 # services
