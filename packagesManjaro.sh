@@ -17,6 +17,7 @@ yay --needed -S \
     nvm \
     direnv \
     xmonad \
+    the_silver_searcher \
     xmonad-contrib \
     feh \
     terraform \
@@ -29,6 +30,7 @@ yay --needed -S \
     discord \
     wezterm \
     rofi \
+    sbt \
     bat \
     obsidian \
     syncthing
