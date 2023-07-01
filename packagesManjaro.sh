@@ -22,6 +22,7 @@ yay --needed -S \
     feh \
     terraform \
     howl \
+    meld \
     xbindkeys \
     copyq \
     signal-desktop \
