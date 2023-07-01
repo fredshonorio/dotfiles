@@ -1,0 +1,8 @@
+configuration {
+    modi: "window,run";
+    terminal: "sakura";
+    lines: 10;
+    display-run: "> ";
+}
+
+@theme "Monokai"

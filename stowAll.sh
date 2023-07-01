@@ -29,6 +29,7 @@ stow \
     terraform \
     zsh \
     user-bin \
+    rofi \
     autostart
 
 
