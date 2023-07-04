@@ -36,7 +36,14 @@ yay --needed -S \
     sbt \
     bat \
     obsidian \
+    flameshot \
+    xfce4-pulseaudio-plugin \
+    xfce4-volumed-pulse `# for volume keys` \
     gum \
+    python-pipenv \
+    pyenv \
+    make \
+    docker-compose \
     noto-fonts-cjk   `# for discord` \
     noto-fonts-emoji `# for discord` \
     syncthing
@@ -54,10 +61,9 @@ yay-needed syncthingtray
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed visual-studio-code-bin
-# polybar
-yay-needed xmonad-log # read xmonad status from dbus
-# yay-needed siji-ttf   # icons -- TODO: see if this is necessary
+yay-needed spotify
 yay-needed ttf-symbola # for discord
+yay-needed xmonad-log # read xmonad status from dbus, for polybar
 
 #
 # services
