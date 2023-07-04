@@ -42,6 +42,7 @@ yay --needed -S \
     gum \
     python-pipenv \
     pyenv \
+    playerctl \
     make \
     docker-compose \
     noto-fonts-cjk   `# for discord` \

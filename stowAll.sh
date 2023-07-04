@@ -5,7 +5,8 @@ set -ex
 first_char=$(hostname | cut -c1)
 
 # laptop stuff
-if [ "$first_char" = "l" ]; then
+if [ "$first_char" = "l" ]
+then
     sudo stow -t / disable-caps-lock
     stow xbindkeys-laptop
 
@@ -13,6 +14,8 @@ if [ "$first_char" = "l" ]; then
     sudo stow -t / disable-audio-powersave
     # systemctl start disable-audio-powersave
     # systemctl enable disable-audio-powersave
+else
+    stow xbindkeys
 fi
 
 # work stuff
