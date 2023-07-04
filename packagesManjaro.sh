@@ -36,6 +36,7 @@ yay --needed -S \
     sbt \
     bat \
     obsidian \
+    gum \
     syncthing
 
 #
@@ -51,7 +52,6 @@ yay-needed syncthingtray
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed visual-studio-code-bin
-# yay-needed python-pssh # for 'c-ps' alias
 # polybar
 yay-needed xmonad-log # read xmonad status from dbus
 # yay-needed siji-ttf   # icons -- TODO: see if this is necessary

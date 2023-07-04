@@ -9,6 +9,7 @@ export EDITOR=howl
 export VISUAL=howl
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export PATH="$PATH:/home/fred/.local/share/coursier/bin"
+export PATH="$PATH:/home/fred/.bin"
 
 source ~/.zsh_plugins.sh
 

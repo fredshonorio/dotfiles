@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+if [ ! -z "$1" ]
+then
+    VAL="--value=$1"
+else
+    VAL=""
+fi
+
+LOAD="flx ps"
+# LOAD="cat t"
+SELECT=$(gum spin -s dot --show-output --title 'Loading deployed apps...' $LOAD | gum filter --no-fuzzy $VAL)
+
+TAG=$(echo $SELECT | cut -d' ' -f 1)
+HOST=$(echo $SELECT | cut -d' ' -f 2)
+
+ssh $HOST "docker logs $TAG -f -n 1000"
