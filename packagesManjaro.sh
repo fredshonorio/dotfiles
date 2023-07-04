@@ -37,6 +37,8 @@ yay --needed -S \
     bat \
     obsidian \
     gum \
+    noto-fonts-cjk   `# for discord` \
+    noto-fonts-emoji `# for discord` \
     syncthing
 
 #
@@ -55,6 +57,7 @@ yay-needed visual-studio-code-bin
 # polybar
 yay-needed xmonad-log # read xmonad status from dbus
 # yay-needed siji-ttf   # icons -- TODO: see if this is necessary
+yay-needed ttf-symbola # for discord
 
 #
 # services
