@@ -54,7 +54,6 @@ yay --needed -S \
     `# dev js` \
     nvm \
     `# misc` \
-    copyq \
     obsidian \
     syncthing
 
