@@ -7,7 +7,6 @@ yay --needed -S \
     ttf-droid \
     git-delta \
     gitui \
-    tig \
     zsh \
     fzf \
     zoxide \
