@@ -2,50 +2,60 @@
 
 
 yay --needed -S \
+    `# fonts` \
     ttf-meslo-nerd-font-powerlevel10k \
     ttf-iosevka-nerd \
     ttf-droid \
+    noto-fonts-cjk   `# for discord` \
+    noto-fonts-emoji `# for discord` \
+    `# shell` \
+    wezterm \
+    zsh \
+    tree \
+    the_silver_searcher \
+    fzf \
+    stow \
+    direnv \
+    bat \
+    `# git` \
+    gitg \
     git-delta \
     gitui \
-    zsh \
-    fzf \
-    zoxide \
-    stow \
-    earlyoom \
-    systembus-notify \
-    nvm \
-    direnv \
-    xmonad \
     gitui \
-    tree \
-    gitg \
-    the_silver_searcher \
+    zoxide \
+    `# desktop` \
+    xmonad \
     xmonad-contrib \
     feh \
-    terraform \
-    howl \
-    meld \
-    xbindkeys \
-    copyq \
-    signal-desktop \
     polybar \
-    discord \
-    wezterm \
     rofi \
-    sbt \
-    bat \
-    obsidian \
+    xbindkeys \
+    playerctl \
+    howl \
     flameshot \
     xfce4-pulseaudio-plugin \
     xfce4-volumed-pulse `# for volume keys` \
+    systembus-notify \
+    earlyoom \
+    `# comms` \
+    discord \
+    signal-desktop \
+    `# dev misc` \
+    terraform \
+    make \
+    meld \
     gum \
+    docker-compose \
+    `# dev python` \
     python-pipenv \
     pyenv \
-    playerctl \
-    make \
-    docker-compose \
-    noto-fonts-cjk   `# for discord` \
-    noto-fonts-emoji `# for discord` \
+    `# dev scala` \
+    sbt \
+    `# dev js` \
+    nvm \
+    `# misc` \
+    copyq \
+    obsidian \
     syncthing
 
 #
