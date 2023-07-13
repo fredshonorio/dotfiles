@@ -1,0 +1,3 @@
+[submodule "submodules/multi-git-status"]
+	path = submodules/multi-git-status
+	url = git@github.com:fboender/multi-git-status.git
