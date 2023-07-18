@@ -25,7 +25,6 @@ fi
 
 stow \
     git \
-    sakura \
     xmonad \
     wezterm \
     terraform \
