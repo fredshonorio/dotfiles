@@ -73,7 +73,7 @@ yay-needed visual-studio-code-bin
 yay-needed spotify
 yay-needed ttf-symbola # for discord
 yay-needed xmonad-log # read xmonad status from dbus, for polybar
-
+yay-needed xmonad-dbus-git
 #
 # services
 #
