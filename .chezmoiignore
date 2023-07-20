@@ -1,0 +1,14 @@
+docker-override.conf
+_scripts
+disable-audio-powersave
+disable-caps-lock
+earlyoom
+submodules
+xbindkeys
+xbindkeys-laptop
+*.md
+init.sh
+packagesManjaro.sh
+stowAll.sh
+update.sh
+use-xmonad.sh

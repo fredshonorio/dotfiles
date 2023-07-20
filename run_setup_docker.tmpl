@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+{{ if not (lookPath "docker") -}}
+sudo pacman --needed -S docker
+{{ end -}}
+
+# add user to group (if not in group already)
+if [ -z "$(groups {{ .chezmoi.username }} | grep docker)" ]; then
+    sudo usermod -aG docker {{ .chezmoi.username }}
+fi
+
+# enable service
+if [ -z $(systemctl is-enabled docker | grep enabled) ]; then
+    sudo systemctl enable docker
+fi
+
+# create dir if it doesn't exist
+if [ ! -d "/etc/systemd/system/docker.service.d" ]; then
+    sudo mkdir /etc/systemd/system/docker.service.d
+fi
+
+# add override
+if [ ! -f "/etc/systemd/system/docker.service.d/override.conf" ]; then
+    sudo mv "{{ .chezmoi.sourceDir }}/docker-override.conf" "/etc/systemd/system/docker.service.d/override.conf"
+fi
