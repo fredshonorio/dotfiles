@@ -12,3 +12,4 @@ packagesManjaro.sh
 stowAll.sh
 update.sh
 use-xmonad.sh
+disable-caps-lock.sh
