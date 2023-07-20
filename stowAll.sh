@@ -17,17 +17,6 @@ else
     stow xbindkeys
 fi
 
-stow \
-    git \
-    xmonad \
-    wezterm \
-    terraform \
-    zsh \
-    user-bin \
-    rofi \
-    autostart
-
-
 # delete installed config
 if [ ! -L "/etc/default/earlyoom" ]; then
     echo "deleting non-link file /etc/default/earlyoom"
