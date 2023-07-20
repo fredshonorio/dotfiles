@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+# enable service
+if [ -z $(systemctl is-enabled earlyoom | grep enabled) ]; then
+    sudo systemctl enable docker
+fi

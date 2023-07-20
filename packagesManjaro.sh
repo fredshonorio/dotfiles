@@ -74,14 +74,3 @@ yay-needed spotify
 yay-needed ttf-symbola # for discord
 yay-needed xmonad-log # read xmonad status from dbus, for polybar
 yay-needed xmonad-dbus-git
-#
-# services
-#
-
-function systemctl-enable-needed() {
-    if ! systemctl is-enabled $1 | grep enabled; then
-        systemctl enable --now $1
-    fi
-}
-
-systemctl-enable-needed earlyoom
