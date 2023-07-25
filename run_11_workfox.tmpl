@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+{{ if not (lookPath "/usr/local/bin/workfox") -}}
+sudo ln -s /home/fred/.bin/workfox /usr/local/bin/workfox
+{{ end -}}
