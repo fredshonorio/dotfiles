@@ -41,3 +41,7 @@ mod-init() {
   mkdir -p modules/$1/src/test/scala/$2
   mkdir -p modules/$1/src/it/scala/$2
 }
+
+sbtn() {
+    sbt --client "$@"
+}
