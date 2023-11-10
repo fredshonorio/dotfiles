@@ -16,10 +16,20 @@ function _branch-del() {
     if read -q "reply?Delete branch with 'git branch -D'?[y/n]: "; then
       echo
       git branch -D $_branch
-    else
-      return -1
     fi
   fi
+
+  
+  git ls-remote --exit-code --heads origin "refs/heads/$_branch" > /dev/null
+  if [[ "$?" == "2" ]] ; then
+    echo "Branch doesn't exist in 'origin', so it won't be deleted"
+  else
+    if read -q "reply?Delete from remote with 'git push -d origin ${_branch}'?[y/n]: "; then
+      echo
+      git push -d origin $_branch
+    fi
+  fi
+
 }
 
 
