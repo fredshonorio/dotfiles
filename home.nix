@@ -27,16 +27,13 @@
   ];
 
   home.file = {
-    # ".aliases.sh".source = files/HOME/.aliases.sh;
     ".direnvrc".source = files/HOME/.direnvrc;
     ".gitconfig".source = files/HOME/.gitconfig;
-    # ".p10k.zsh".source = files/HOME/.p10k.zsh;
     ".terraformrc".source = files/HOME/.terraformrc;
+    ".terraform.d/plugin-cache/.keep".source = builtins.toFile "f" "";
     ".xbindkeysrc".source = files/HOME/.xbindkeysrc;
-    # ".zsh_plugins.txt".source = files/HOME/.zsh_plugins.txt;
-    # ".zshrc".source = files/HOME/.zshrc;
-
     ".xmonad/xmonad.hs".source = files/HOME/.xmonad/xmonad.hs;
+
     ".config/autostart/discord.desktop".source =
       files/HOME/.config/autostart/discord.desktop;
     ".config/autostart/obsidian.desktop".source =
@@ -49,7 +46,7 @@
       files/HOME/.config/autostart/xbindkeys.desktop;
     ".config/autostart/Xmonad.desktop".source =
       files/HOME/.config/autostart/Xmonad.desktop;
-    ".config/polybar/config.ini".source = files/HOME/.config/polybar/config.ini;
+
     ".config/rofi/config.rasi".source = files/HOME/.config/rofi/config.rasi;
     ".config/wezterm/wezterm.lua".source =
       files/HOME/.config/wezterm/wezterm.lua;
@@ -58,7 +55,10 @@
       files/HOME/.bin/discord-ignore-update.sh;
     ".bin/git-branch-delete-fzf.zsh".source =
       files/HOME/.bin/git-branch-delete-fzf.zsh;
+
+    ".config/polybar/config.ini".source = files/HOME/.config/polybar/config.ini;
     ".bin/polybar.sh".source = files/HOME/.bin/polybar.sh;
+
     ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
       owner = "fboender";
       repo = "multi-git-status";
@@ -110,6 +110,7 @@
     enable = true;
     # initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
     initExtra = ''
+      export PATH="$PATH:/home/fred/.bin"
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -143,8 +144,10 @@
     };
   };
 
-  programs.oh-my-posh.enable = true;
+  programs.oh-my-posh = {
+    enable = true;
+    useTheme = "emodipt-extend";
+  };
   programs.zoxide.enable = true;
   programs.carapace.enable = true;
-
 }
