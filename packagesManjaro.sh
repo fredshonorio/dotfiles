@@ -17,7 +17,6 @@ yay-needed zsh
 yay-needed tree
 yay-needed the_silver_searcher
 yay-needed fzf
-yay-needed direnv
 yay-needed bat
 # git
 yay-needed gitg
