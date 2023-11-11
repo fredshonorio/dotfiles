@@ -1,14 +1,24 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
-  autostart = (args:
-    builtins.toFile "f" ''
-      [Desktop Entry]
-      Name=${args.name}
-      Exec=${args.exec}
-      Terminal=false
-      Type=Application
-    '');
+  autostart = apps:
+    let
+      # { name: str, exec: str } -> { <path>: { source: file? } }
+      autostartEntry = args: {
+        ".config/autostart/${args.name}.desktop".text = ''
+          [Desktop Entry]
+          Name=${args.name}
+          Exec=${args.exec}
+          Terminal=false
+          Type=Application
+        '';
+      };
+    in lib.attrsets.mergeAttrsList (map autostartEntry apps);
+
+  app = name: exec: {
+    name = name;
+    exec = exec;
+  };
 
 in {
   home.username = "fred";
@@ -35,68 +45,41 @@ in {
     # '')
   ];
 
-  home.file = {
-    ".direnvrc".source = files/direnvrc;
-    ".gitconfig".source = files/gitconfig;
-    ".terraformrc".source = files/terraformrc;
-    ".terraform.d/plugin-cache/.keep".source = builtins.toFile "f" "";
-    ".xbindkeysrc".source = files/xbindkeysrc;
-    ".xmonad/xmonad.hs".source = files/xmonad.hs;
+  home.file = lib.attrsets.mergeAttrsList [
+    {
+      ".direnvrc".source = files/direnvrc;
+      ".gitconfig".source = files/gitconfig;
+      ".terraformrc".source = files/terraformrc;
+      ".terraform.d/plugin-cache/.keep".source = builtins.toFile "f" "";
+      ".xbindkeysrc".source = files/xbindkeysrc;
+      ".xmonad/xmonad.hs".source = files/xmonad.hs;
 
-    ".config/rofi/config.rasi".source = files/rofi-config.rasi;
-    ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
-    ".bin/c-ps".source = files/bin/c-ps;
-    ".bin/git-branch-delete-fzf.zsh".source =
-      files/bin/git-branch-delete-fzf.zsh;
-    ".bin/flx".source = files/bin/flx;
+      ".config/rofi/config.rasi".source = files/rofi-config.rasi;
+      ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
+      ".bin/c-ps".source = files/bin/c-ps;
+      ".bin/git-branch-delete-fzf.zsh".source =
+        files/bin/git-branch-delete-fzf.zsh;
+      ".bin/flx".source = files/bin/flx;
 
-    ".config/polybar/config.ini".source = files/polybar/config.ini;
-    ".bin/polybar.sh".source = files/polybar/polybar.sh;
+      ".config/polybar/config.ini".source = files/polybar/config.ini;
+      ".bin/polybar.sh".source = files/polybar/polybar.sh;
 
-    ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
-      owner = "fboender";
-      repo = "multi-git-status";
-      rev = "2.2";
-      sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
-    } + "/mgitstatus";
-
-    # autostart
-    ".config/autostart/discord.desktop".source = autostart {
-      name = "discord";
-      exec = "/usr/bin/discord";
-    };
-
-    ".config/autostart/obsidian.desktop".source = autostart {
-      name = "obsidian";
-      exec = "/usr/bin/obsidian";
-    };
-
-    ".config/autostart/signal.desktop".source = autostart {
-      name = "signal";
-      exec = "/usr/bin/signal-desktop";
-    };
-
-    ".config/autostart/thunderbird.desktop".source = autostart {
-      name = "thunderbird";
-      exec = "/usr/bin/thunderbird";
-    };
-
-    ".config/autostart/xbindkeys.desktop".source = autostart {
-      name = "xbindkeys";
-      exec = "/usr/bin/xbindkeys";
-    };
-
-    ".config/autostart/xmonad.desktop".source = autostart {
-      name = "xmonad";
-      exec = "/usr/bin/xmonad --replace";
-    };
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
+      ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
+        owner = "fboender";
+        repo = "multi-git-status";
+        rev = "2.2";
+        sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
+      } + "/mgitstatus";
+    }
+    (autostart [
+      (app "discord" "/usr/bin/discord")
+      (app "obsidian" "/usr/bin/obsidian")
+      (app "signal" "/usr/bin/signal-desktop")
+      (app "thunderbird" "/usr/bin/thunderbird")
+      (app "xbindkeys" "/usr/bin/xbindkeys")
+      (app "xmonad" "/usr/bin/xmonad --replace")
+    ])
+  ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
