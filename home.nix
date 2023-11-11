@@ -5,8 +5,6 @@
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
     pkgs.direnv
     pkgs.fzf
@@ -27,37 +25,33 @@
   ];
 
   home.file = {
-    ".direnvrc".source = files/HOME/.direnvrc;
-    ".gitconfig".source = files/HOME/.gitconfig;
-    ".terraformrc".source = files/HOME/.terraformrc;
+    ".direnvrc".source = files/direnvrc;
+    ".gitconfig".source = files/gitconfig;
+    ".terraformrc".source = files/terraformrc;
     ".terraform.d/plugin-cache/.keep".source = builtins.toFile "f" "";
-    ".xbindkeysrc".source = files/HOME/.xbindkeysrc;
-    ".xmonad/xmonad.hs".source = files/HOME/.xmonad/xmonad.hs;
+    ".xbindkeysrc".source = files/xbindkeysrc;
+    ".xmonad/xmonad.hs".source = files/xmonad.hs;
 
     ".config/autostart/discord.desktop".source =
-      files/HOME/.config/autostart/discord.desktop;
+      files/autostart/discord.desktop;
     ".config/autostart/obsidian.desktop".source =
-      files/HOME/.config/autostart/obsidian.desktop;
-    ".config/autostart/signal.desktop".source =
-      files/HOME/.config/autostart/signal.desktop;
+      files/autostart/obsidian.desktop;
+    ".config/autostart/signal.desktop".source = files/autostart/signal.desktop;
     ".config/autostart/thunderbird.desktop".source =
-      files/HOME/.config/autostart/thunderbird.desktop;
+      files/autostart/thunderbird.desktop;
     ".config/autostart/xbindkeys.desktop".source =
-      files/HOME/.config/autostart/xbindkeys.desktop;
-    ".config/autostart/Xmonad.desktop".source =
-      files/HOME/.config/autostart/Xmonad.desktop;
+      files/autostart/xbindkeys.desktop;
+    ".config/autostart/Xmonad.desktop".source = files/autostart/Xmonad.desktop;
 
-    ".config/rofi/config.rasi".source = files/HOME/.config/rofi/config.rasi;
-    ".config/wezterm/wezterm.lua".source =
-      files/HOME/.config/wezterm/wezterm.lua;
-    ".bin/c-ps".source = files/HOME/.bin/c-ps;
-    ".bin/discord-ignore-update.sh".source =
-      files/HOME/.bin/discord-ignore-update.sh;
+    ".config/rofi/config.rasi".source = files/rofi-config.rasi;
+    ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
+    ".bin/c-ps".source = files/bin/c-ps;
+    ".bin/discord-ignore-update.sh".source = files/bin/discord-ignore-update.sh;
     ".bin/git-branch-delete-fzf.zsh".source =
-      files/HOME/.bin/git-branch-delete-fzf.zsh;
+      files/bin/git-branch-delete-fzf.zsh;
 
-    ".config/polybar/config.ini".source = files/HOME/.config/polybar/config.ini;
-    ".bin/polybar.sh".source = files/HOME/.bin/polybar.sh;
+    ".config/polybar/config.ini".source = files/polybar/config.ini;
+    ".bin/polybar.sh".source = files/polybar/polybar.sh;
 
     ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
       owner = "fboender";
