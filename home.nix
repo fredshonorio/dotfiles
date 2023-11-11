@@ -9,6 +9,7 @@
     pkgs.direnv
     pkgs.fzf
     pkgs.nixfmt
+    pkgs.gum
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -46,9 +47,9 @@
     ".config/rofi/config.rasi".source = files/rofi-config.rasi;
     ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
     ".bin/c-ps".source = files/bin/c-ps;
-    ".bin/discord-ignore-update.sh".source = files/bin/discord-ignore-update.sh;
     ".bin/git-branch-delete-fzf.zsh".source =
       files/bin/git-branch-delete-fzf.zsh;
+    ".bin/flx".source = files/bin/flx;
 
     ".config/polybar/config.ini".source = files/polybar/config.ini;
     ".bin/polybar.sh".source = files/polybar/polybar.sh;
@@ -134,4 +135,20 @@
   # alt+c - list directories in pwd then cd into selected one
   # ctrl+t - search current directory and insert the selected file path in the prompt
   programs.fzf.enable = true;
+
+  programs.pet.enable = true;
+  programs.pet.snippets = [{
+    description = "Discord - ignore updates";
+    command = ''
+      tmp=$(mktemp)
+      cfg="$HOME/.config/discord/settings.json"
+
+      jq '. += {"SKIP_HOST_UPDATE":true}' $cfg > $tmp
+
+      rm $cfg
+
+      cp $tmp $cfg
+    '';
+
+  }];
 }
