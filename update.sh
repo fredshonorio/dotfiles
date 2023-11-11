@@ -15,6 +15,12 @@ set -ex
 home-manager switch
 
 #
+# out of home config
+#
+
+./out-of-home.sh
+
+#
 # Shell
 #
 ## Bundle plugins in .zsh_plugins.txt to be loaded by the shell
