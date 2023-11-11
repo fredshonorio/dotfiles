@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
-{
+let
+  autostart = (args:
+    builtins.toFile "f" ''
+      [Desktop Entry]
+      Name=${args.name}
+      Exec=${args.exec}
+      Terminal=false
+      Type=Application
+    '');
+
+in {
   home.username = "fred";
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
@@ -33,17 +43,6 @@
     ".xbindkeysrc".source = files/xbindkeysrc;
     ".xmonad/xmonad.hs".source = files/xmonad.hs;
 
-    ".config/autostart/discord.desktop".source =
-      files/autostart/discord.desktop;
-    ".config/autostart/obsidian.desktop".source =
-      files/autostart/obsidian.desktop;
-    ".config/autostart/signal.desktop".source = files/autostart/signal.desktop;
-    ".config/autostart/thunderbird.desktop".source =
-      files/autostart/thunderbird.desktop;
-    ".config/autostart/xbindkeys.desktop".source =
-      files/autostart/xbindkeys.desktop;
-    ".config/autostart/Xmonad.desktop".source = files/autostart/Xmonad.desktop;
-
     ".config/rofi/config.rasi".source = files/rofi-config.rasi;
     ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
     ".bin/c-ps".source = files/bin/c-ps;
@@ -60,6 +59,37 @@
       rev = "2.2";
       sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
     } + "/mgitstatus";
+
+    # autostart
+    ".config/autostart/discord.desktop".source = autostart {
+      name = "discord";
+      exec = "/usr/bin/discord";
+    };
+
+    ".config/autostart/obsidian.desktop".source = autostart {
+      name = "obsidian";
+      exec = "/usr/bin/obsidian";
+    };
+
+    ".config/autostart/signal.desktop".source = autostart {
+      name = "signal";
+      exec = "/usr/bin/signal-desktop";
+    };
+
+    ".config/autostart/thunderbird.desktop".source = autostart {
+      name = "thunderbird";
+      exec = "/usr/bin/thunderbird";
+    };
+
+    ".config/autostart/xbindkeys.desktop".source = autostart {
+      name = "xbindkeys";
+      exec = "/usr/bin/xbindkeys";
+    };
+
+    ".config/autostart/xmonad.desktop".source = autostart {
+      name = "xmonad";
+      exec = "/usr/bin/xmonad --replace";
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
