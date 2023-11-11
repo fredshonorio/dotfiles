@@ -78,20 +78,10 @@
   programs.zsh.antidote = {
     enable = true;
     plugins = [
-      "robbyrussell/oh-my-zsh path:plugins/nvm" # tab completion for nvm
-      # integrate fzf in zsh
-      # override Ctrl+R to use fzf
-      # alt+c - list directories in pwd then cd into selected one
-      # ctrl+t - search current directory and insert the selected file path in the prompt
-      "robbyrussell/oh-my-zsh path:plugins/fzf"
       # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
       "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
-      "zsh-users/zsh-completions" # more tab completions (one day I should include only what I use)
       "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
       "ptavares/zsh-direnv" # direnv hooks for zsh (probably could be a program.)
-      # add a jq integration to filter the json output of a program with jq, type the command and then press alt+j
-      "reegnz/jq-zsh-plugin"
-
       # add hooks into zsh so that it shows a notification when a long running (15 seconds) process ends
       "kevinywlui/zlong_alert.zsh"
       # "chisui/zsh-nix-shell" # use zsh when running `$ nix-shell`
@@ -101,7 +91,6 @@
 
   programs.zsh = {
     enable = true;
-    # initExtra = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
     initExtra = ''
       export PATH="$PATH:/home/fred/.bin"
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -137,8 +126,12 @@
     };
   };
 
-  programs.oh-my-posh.enable =  true;
+  programs.oh-my-posh.enable = true;
   programs.oh-my-posh.useTheme = "emodipt-extend";
   programs.zoxide.enable = true;
-  programs.carapace.enable = true;
+
+  # override Ctrl+R to use fzf
+  # alt+c - list directories in pwd then cd into selected one
+  # ctrl+t - search current directory and insert the selected file path in the prompt
+  programs.fzf.enable = true;
 }
