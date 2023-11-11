@@ -16,13 +16,11 @@ yay-needed wezterm
 yay-needed zsh
 yay-needed tree
 yay-needed the_silver_searcher
-yay-needed fzf
 yay-needed bat
 # git
 yay-needed gitg
 yay-needed git-delta
 yay-needed gitui
-yay-needed zoxide
 # desktop
 yay-needed xmonad
 yay-needed xmonad-contrib
@@ -44,7 +42,6 @@ yay-needed signal-desktop
 yay-needed terraform
 yay-needed make
 yay-needed meld
-yay-needed gum
 yay-needed docker-compose
 # dev python
 yay-needed python-pipenv
@@ -61,8 +58,7 @@ yay-needed syncthing
 # AUR packages
 #
 
-yay-needed antibody-bin
-# yay-needed syncthingtray TODO: gtk
+yay-needed syncthing-gtk
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed visual-studio-code-bin
