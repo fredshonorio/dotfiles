@@ -46,7 +46,6 @@
     ".bin/discord-ignore-update.sh".source = files/HOME/.bin/discord-ignore-update.sh;
     ".bin/git-branch-delete-fzf.zsh".source = files/HOME/.bin/git-branch-delete-fzf.zsh;
     ".bin/polybar.sh".source = files/HOME/.bin/polybar.sh;
-    ".bin/workfox".source = files/HOME/.bin/workfox;
     ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
         owner = "fboender";
         repo = "multi-git-status";

@@ -7,7 +7,12 @@ set -ex
 #
 
 ./packagesManjaro.sh
-./stowAll.sh
+
+#
+# Home manager
+#
+
+home-manager switch
 
 #
 # Shell

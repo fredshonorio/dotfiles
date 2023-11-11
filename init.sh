@@ -8,10 +8,12 @@ set -ex
 
 
 sudo pacman -Syu
-sudo pacman --needed -S yay
-sudo pacman --needed -S chezmoi
+sudo pacman --needed -S yay nix
 
-chezmoi apply
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+# TODO
 
 # Change shell 
 sudo chsh -s $(which zsh) $USER

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -euxo pipefail
-
-if [ ! -f "/etc/X11/xinit/xinitrc.d/99-disable-caps-lock.sh" ]; then
-    sudo cp "{{ .chezmoi.sourceDir }}/disable-caps-lock.sh" "/etc/X11/xinit/xinitrc.d/99-disable-caps-lock.sh"
-fi

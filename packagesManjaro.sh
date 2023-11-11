@@ -17,13 +17,11 @@ yay-needed zsh
 yay-needed tree
 yay-needed the_silver_searcher
 yay-needed fzf
-yay-needed stow
 yay-needed direnv
 yay-needed bat
 # git
 yay-needed gitg
 yay-needed git-delta
-yay-needed gitui
 yay-needed gitui
 yay-needed zoxide
 # desktop
@@ -34,7 +32,6 @@ yay-needed polybar
 yay-needed rofi
 yay-needed xbindkeys
 yay-needed playerctl
-yay-needed howl
 yay-needed flameshot
 yay-needed xfce4-pulseaudio-plugin
 ## for volume keys
@@ -66,7 +63,7 @@ yay-needed syncthing
 #
 
 yay-needed antibody-bin
-yay-needed syncthingtray
+# yay-needed syncthingtray TODO: gtk
 yay-needed pacman-cleanup-hook
 yay-needed xmonad-recompile-pacman-hook-git
 yay-needed visual-studio-code-bin
