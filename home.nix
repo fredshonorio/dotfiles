@@ -73,7 +73,6 @@
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs.zsh.antidote = {
@@ -138,10 +137,8 @@
     };
   };
 
-  programs.oh-my-posh = {
-    enable = true;
-    useTheme = "emodipt-extend";
-  };
+  programs.oh-my-posh.enable =  true;
+  programs.oh-my-posh.useTheme = "emodipt-extend";
   programs.zoxide.enable = true;
   programs.carapace.enable = true;
 }
