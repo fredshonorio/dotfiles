@@ -10,6 +10,8 @@ export VISUAL=howl
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export PATH="$PATH:/home/fred/.local/share/coursier/bin"
 export PATH="$PATH:/home/fred/.bin"
+# this workaround seems to be required for nix
+export LOCALE_ARCHIVE="/lib/locale/locale-archive"
 
 source ~/.zsh_plugins.sh
 
@@ -21,3 +23,5 @@ source ~/.aliases.sh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+if [ -e /home/fred/.nix-profile/etc/profile.d/nix.sh ]; then . /home/fred/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
