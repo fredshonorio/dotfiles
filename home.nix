@@ -30,6 +30,7 @@ in {
     pkgs.fzf
     pkgs.nixfmt
     pkgs.gum
+    pkgs.entr
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -85,6 +86,8 @@ in {
     EDITOR = "nvim";
     VISUAL = "nvim";
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
+    LC_ALL =
+      "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
   };
 
   programs.home-manager.enable = true;
@@ -150,6 +153,7 @@ in {
   # alt+c - list directories in pwd then cd into selected one
   # ctrl+t - search current directory and insert the selected file path in the prompt
   programs.fzf.enable = true;
+  programs.carapace.enable = true;
 
   programs.pet.enable = true;
   programs.pet.snippets = [{
