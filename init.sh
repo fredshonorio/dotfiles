@@ -7,12 +7,14 @@ set -ex
 #
 
 
-sudo pacman -Syu
-sudo pacman --needed -S yay nix
+# sudo pacman -Syu
+sudo pacman --needed -S yay
 
-ln -s ~/.dotfiles ~/.config/home-manager
+# TODO install nix, use the standard installer, not pacman, make idempotent
+# ln -s ~/.dotfiles ~/.config/home-manager TODO make idempotent
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
+
 nix-shell '<home-manager>' -A install
 
 # Change shell 

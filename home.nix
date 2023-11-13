@@ -93,6 +93,7 @@ in {
     enable = true;
     plugins = [
       # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
+      "DarrinTisdale/zsh-aliases-ls"
       "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
       "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
       "ptavares/zsh-direnv" # direnv hooks for zsh (probably could be a program.)
@@ -110,6 +111,7 @@ in {
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+      bindkey -e
     '';
 
     shellAliases = {
