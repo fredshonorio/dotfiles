@@ -90,13 +90,14 @@ in {
       "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
   };
 
+  home.sessionPath = [ "$HOME/.bin" ];
+
   programs.home-manager.enable = true;
 
   programs.zsh.antidote = {
     enable = true;
     plugins = [
       # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
-      "DarrinTisdale/zsh-aliases-ls"
       "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
       "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
       "ptavares/zsh-direnv" # direnv hooks for zsh (probably could be a program.)
@@ -110,17 +111,28 @@ in {
   programs.zsh = {
     enable = true;
     initExtra = ''
-      export PATH="$PATH:/home/fred/.bin"
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-      bindkey -e
+      bindkey "^[[H"  beginning-of-line # home key
+      bindkey "^[[F"  end-of-line       # end key
+      bindkey "^[[3~" delete-char       # delete key
     '';
+
+    defaultKeymap = "emacs";
 
     shellAliases = {
       up = "home-manager switch";
+      ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
+      # ls
+      l = "ls -lFh";
+      la = "ls -lAFh";
+      ll = "ls -l";
+      lt = "ls -lrtFh";
+      lat = "ls -lratFh";
+      # jvm
       sbtn = ''sbt --client "$@"'';
       list-sbt = ''jps | grep sbt-launch.jar | cut -f 1 -d " " | xargs pwdx'';
       yay-unused = "yay -Rns $(yay -Qtdq)";
@@ -136,6 +148,7 @@ in {
             print $0  " [" wd "]"
         }' | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null
       '';
+      # terraform
       tpx = "terraform plan -out x";
       tax = "terraform apply x";
       tfmt = "terraform fmt -recursive";
@@ -147,6 +160,10 @@ in {
 
   programs.oh-my-posh.enable = true;
   programs.oh-my-posh.useTheme = "emodipt-extend";
+  #programs.oh-my-posh.settings = builtins.fromJSON
+  # (builtins.unsafeDiscardStringContext (builtins.readFile
+  #  "${pkgs.oh-my-posh}/share/oh-my-posh/themes/emodipt-extend.omp.json"));
+
   programs.zoxide.enable = true;
 
   # override Ctrl+R to use fzf
