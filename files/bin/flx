@@ -1,3 +1,11 @@
 #!/bin/bash
 
-java -jar ~/meshapp/flx/target/fat-jar/flx.jar $@
+
+if [[ -d "$HOME/meshapp/flx/" ]]; then
+    java -jar ~/meshapp/flx/target/fat-jar/flx.jar $@
+elif [[ -d "$HOME/fluxio/flx/" ]]; then
+    java -jar ~/fluxio/flx/target/fat-jar/flx.jar $@
+else
+    echo "Can't find flx jar"
+    exit 1
+fi
