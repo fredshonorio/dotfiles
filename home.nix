@@ -104,32 +104,18 @@ in {
       # add hooks into zsh so that it shows a notification when a long running (15 seconds) process ends
       "kevinywlui/zlong_alert.zsh"
       # "chisui/zsh-nix-shell" # use zsh when running `$ nix-shell`
-      # "lukechilds/zsh-nvm" # TODO: clean this up, this slows up my shell by +1 second and I don't really need it,
-      # i still have nvm in the OS, without shell integration, which means the common usage (cd'ing into a project with nvm)
-      # through direnv still sets up the correct node version
-      # either:
-      # - stop using nvm
-      # - mess about with zshrc so that nvm doesn't affect the shell so aggressively
-      # - add a user command to load nvm into the current shell
+      "lukechilds/zsh-nvm"
     ];
   };
 
   programs.zsh = {
     enable = true;
+
+    initExtraFirst = ''
+      export NVM_LAZY_LOAD=true
+    '';
+
     initExtra = ''
-      lazy_load_nvm() {
-        unset -f node nvm
-        export NVM_DIR=~/.nvm
-        [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-      }
-      node() {
-        lazy_load_nvm
-        node $@
-      }
-      nvm() {
-        lazy_load_nvm
-        nvm $@
-      }
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
