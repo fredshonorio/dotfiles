@@ -117,6 +117,19 @@ in {
   programs.zsh = {
     enable = true;
     initExtra = ''
+      lazy_load_nvm() {
+        unset -f node nvm
+        export NVM_DIR=~/.nvm
+        [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+      }
+      node() {
+        lazy_load_nvm
+        node $@
+      }
+      nvm() {
+        lazy_load_nvm
+        nvm $@
+      }
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
