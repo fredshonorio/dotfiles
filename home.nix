@@ -164,10 +164,10 @@ in {
   };
 
   programs.oh-my-posh.enable = true;
-  programs.oh-my-posh.useTheme = "emodipt-extend";
-  #programs.oh-my-posh.settings = builtins.fromJSON
-  # (builtins.unsafeDiscardStringContext (builtins.readFile
-  #  "${pkgs.oh-my-posh}/share/oh-my-posh/themes/emodipt-extend.omp.json"));
+  # programs.oh-my-posh.useTheme = "emodipt-extend";
+  programs.oh-my-posh.settings = builtins.fromJSON
+    (builtins.unsafeDiscardStringContext
+      (builtins.readFile files/emodipt-extend-fred.omp.json));
 
   programs.zoxide.enable = true;
 
