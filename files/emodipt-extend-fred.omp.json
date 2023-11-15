@@ -15,18 +15,9 @@
           "type": "time"
         },
         {
-          "type": "shell",
+          "type": "session",
           "style": "plain",
-          "foreground": "#E06C75",
-          "properties": {
-            "mapped_shell_names": {
-              "pwsh": "Shell",
-              "powershell": "Shell",
-              "cmd": "Cmd",
-              "bash": "Bash"
-            }
-          },
-          "template": " \ue795 {{ .Name }}"
+          "foreground": "#E06C75"
         },
         {
           "foreground": "#F3C267",
