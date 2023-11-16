@@ -49,6 +49,7 @@ yay-needed python-pipenv
 yay-needed pyenv
 # dev scala
 yay-needed sbt
+yay-needed intellij-idea-community-edition
 # dev js
 yay-needed nvm
 # misc

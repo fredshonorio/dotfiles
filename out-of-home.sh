@@ -27,7 +27,7 @@ ensure-file () {
     local dst="$2"
 
     if [[ ! -f "$dst" ]]; then # destination doesn't exist, copy
-        sudo rsync $src $dst
+        sudo rsync "$src" "$dst"
     else
         if cmp --silent -- "$dst" "$src"; then
             echo -e "\e[32m'$dst': exists and is identical\033[0m"
@@ -65,4 +65,4 @@ replace-file-su "disable-caps-lock.sh" "/etc/X11/xinit/xinitrc.d/99-disable-caps
 # intellij 
 # technically in $HOME, but not managed by home manager because idk how IJ
 # handles a file with no write permissions
-ensure-file xwin-copy.xml "$HOME/.config/JetBrains/IdeaIC2023.1/keymaps/XWin copy.xml"
+ensure-file xwin-copy.xml "$HOME/.config/JetBrains/IdeaIC2023.2/keymaps/XWin copy.xml"
