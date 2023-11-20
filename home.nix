@@ -62,6 +62,10 @@ in {
         files/bin/git-branch-delete-fzf.zsh;
       ".bin/flx".source = files/bin/flx;
 
+      # navi
+      # https://github.com/denisidoro/navi/blob/master/docs/cheatsheet_syntax.md
+      ".bin/cheats/discord-ignore-updates.cheat".source = files/bin/cheats/discord-ignore-updates.cheat;
+
       ".config/polybar/config.ini".source = files/polybar/config.ini;
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
 
@@ -177,19 +181,12 @@ in {
   programs.fzf.enable = true;
   programs.carapace.enable = true;
 
-  programs.pet.enable = true;
-  programs.pet.snippets = [{
-    description = "Discord - ignore updates";
-    command = ''
-      tmp=$(mktemp)
-      cfg="$HOME/.config/discord/settings.json"
-
-      jq '. += {"SKIP_HOST_UPDATE":true}' $cfg > $tmp
-
-      rm $cfg
-
-      cp $tmp $cfg
-    '';
-
-  }];
+  programs.navi.enable = true;
+  programs.navi.settings = {
+    cheats = {
+      paths = [
+        "~/.bin/cheats"
+      ];
+    };
+  };
 }
