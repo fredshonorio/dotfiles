@@ -68,6 +68,7 @@ in {
       # navi
       # https://github.com/denisidoro/navi/blob/master/docs/cheatsheet_syntax.md
       ".bin/cheats/discord-ignore-updates.cheat".source = files/bin/cheats/discord-ignore-updates.cheat;
+      ".bin/cheats/cortex-vnc.cheat".source = files/bin/cheats/cortex-vnc.cheat;
 
       ".config/polybar/config.ini".source = files/polybar/config.ini;
       ".bin/polybar.sh".source = files/polybar/polybar.sh;

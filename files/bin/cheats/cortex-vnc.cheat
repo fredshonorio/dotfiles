@@ -1,0 +1,9 @@
+% vnc
+# enable and vnc into cortex
+trap "kill 0" SIGINT
+
+ip="192.168.1.85"
+host="cortex"
+
+(ssh $host x11vnc) &
+(sleep 5 && vncviewer $ip)
