@@ -27,7 +27,7 @@ ensure-file () {
     local dst="$2"
 
     if [[ ! -f "$dst" ]]; then # destination doesn't exist, copy
-        sudo rsync "$src" "$dst"
+        rsync "$src" "$dst"
     else
         if cmp --silent -- "$dst" "$src"; then
             echo -e "\e[32m'$dst': exists and is identical\033[0m"
