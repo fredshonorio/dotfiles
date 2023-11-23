@@ -145,6 +145,7 @@ in {
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
       # ls
+      ls = "lsd";
       l = "lsd -lFh";
       la = "lsd -lAFh";
       ll = "lsd -l";
