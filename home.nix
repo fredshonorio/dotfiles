@@ -34,6 +34,7 @@ in {
     pkgs.du-dust
     pkgs.procs
     pkgs.tealdeer
+    pkgs.lsd
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -144,11 +145,11 @@ in {
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
       # ls
-      l = "ls -lFh";
-      la = "ls -lAFh";
-      ll = "ls -l";
-      lt = "ls -lrtFh";
-      lat = "ls -lratFh";
+      l = "lsd -lFh";
+      la = "lsd -lAFh";
+      ll = "lsd -l";
+      lt = "lsd -lrtFh";
+      lat = "lsd -lratFh";
       # jvm
       sbtn = ''sbt --client "$@"'';
       list-sbt = ''jps | grep sbt-launch.jar | cut -f 1 -d " " | xargs pwdx'';
