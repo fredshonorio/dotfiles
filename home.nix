@@ -139,7 +139,7 @@ in {
     defaultKeymap = "emacs";
 
     shellAliases = {
-      up = "home-manager switch";
+      up = "home-manager -f $HOME/.config/home-manager/$HOST.nix switch";
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
