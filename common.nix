@@ -74,9 +74,6 @@ in {
       ".config/polybar/config.ini".source = files/polybar/config.ini;
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
 
-      # fixes stuttering with the UR22kmII on recent kernels (maybe?)
-      ".config/wireplumber/main.lua.d/50-alsa-config.lua".source = files/wireplumber/50-alsa-config.lua;
-
       ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
         owner = "fboender";
         repo = "multi-git-status";
@@ -191,11 +188,5 @@ in {
   programs.carapace.enable = true;
 
   programs.navi.enable = true;
-  programs.navi.settings = {
-    cheats = {
-      paths = [
-        "~/.bin/cheats"
-      ];
-    };
-  };
+  programs.navi.settings = { cheats = { paths = [ "~/.bin/cheats" ]; }; };
 }
