@@ -70,8 +70,12 @@ in {
       ".bin/cheats/discord-ignore-updates.cheat".source = files/bin/cheats/discord-ignore-updates.cheat;
       ".bin/cheats/cortex-vnc.cheat".source = files/bin/cheats/cortex-vnc.cheat;
 
+      # polybar
       ".config/polybar/config.ini".source = files/polybar/config.ini;
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
+
+      # fixes stuttering with the UR22kmII on recent kernels (maybe?)
+      ".config/wireplumber/main.lua.d/50-alsa-config.lua".source = files/wireplumber/50-alsa-config.lua;
 
       ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
         owner = "fboender";
