@@ -103,22 +103,9 @@ in {
 
   programs.home-manager.enable = true;
 
-  programs.zsh.antidote = {
-    enable = true;
-    plugins = [
-      # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
-      "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
-      "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
-      "ptavares/zsh-direnv" # direnv hooks for zsh (probably could be a program.)
-      # add hooks into zsh so that it shows a notification when a long running (15 seconds) process ends
-      "kevinywlui/zlong_alert.zsh"
-      # "chisui/zsh-nix-shell" # use zsh when running `$ nix-shell`
-      "lukechilds/zsh-nvm"
-    ];
-  };
-
   programs.zsh = {
     enable = true;
+    defaultKeymap = "emacs";
 
     initExtraFirst = ''
       export NVM_LAZY_LOAD=true
@@ -133,7 +120,19 @@ in {
       bindkey "^[[3~" delete-char       # delete key
     '';
 
-    defaultKeymap = "emacs";
+    antidote = {
+      enable = true;
+      plugins = [
+        # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
+        "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
+        "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
+        "ptavares/zsh-direnv" # direnv hooks for zsh (probably could be a program.)
+        # add hooks into zsh so that it shows a notification when a long running (15 seconds) process ends
+        "kevinywlui/zlong_alert.zsh"
+        # "chisui/zsh-nix-shell" # use zsh when running `$ nix-shell`
+        "lukechilds/zsh-nvm"
+      ];
+    };
 
     shellAliases = {
       up = "home-manager -f $HOME/.config/home-manager/$HOST.nix switch";
