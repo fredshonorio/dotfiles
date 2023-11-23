@@ -1,0 +1,4 @@
+% disable caps-lock
+# i have this disabled globally but sometimes it comes back
+setxkbmap -option ctrl:nocaps
+
