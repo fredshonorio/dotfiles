@@ -58,6 +58,7 @@ in {
       ".terraform.d/plugin-cache/.keep".source = builtins.toFile "f" "";
       ".xbindkeysrc".source = files/xbindkeysrc;
       ".xmonad/xmonad.hs".source = files/xmonad.hs;
+      ".p10k.zsh".source = files/.p10k.zsh;
 
       ".config/rofi/config.rasi".source = files/rofi-config.rasi;
       ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
@@ -112,6 +113,10 @@ in {
     '';
 
     initExtra = ''
+      if [[ -r "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+      source ~/.p10k.zsh
       #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -123,6 +128,7 @@ in {
     antidote = {
       enable = true;
       plugins = [
+        "romkatv/powerlevel10k"
         # "robbyrussell/oh-my-zsh path:plugins/pipenv" TODO
         "zsh-users/zsh-autosuggestions" # suggest a matching previous command as you type
         "zsh-users/zsh-syntax-highlighting" # syntax highlighting on the prompt
@@ -172,7 +178,7 @@ in {
     };
   };
 
-  programs.oh-my-posh.enable = true;
+  # programs.oh-my-posh.enable = true;
   # programs.oh-my-posh.useTheme = "emodipt-extend";
   programs.oh-my-posh.settings = builtins.fromJSON
     (builtins.unsafeDiscardStringContext
