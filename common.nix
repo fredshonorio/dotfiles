@@ -35,6 +35,8 @@ in {
     pkgs.procs
     pkgs.tealdeer
     pkgs.lsd
+    pkgs.coursier
+    pkgs.neovim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
