@@ -145,6 +145,7 @@ in {
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
+      v = "nvim";
       # ls
       ls = "lsd";
       l = "lsd -lFh";
