@@ -15,9 +15,9 @@ let
 
 in lib.mkMerge [
   common # base
-  {
-    home.file =
-      extra.files.desktopAudioInterfaceFix; # override (merged recursively)
-  }
+#  { replaced pipewire with pulseaudio because this fix wasn't fixing anything
+#    home.file =
+#      extra.files.desktopAudioInterfaceFix; # override (merged recursively)
+#  }
 ]
 
