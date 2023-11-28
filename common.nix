@@ -92,6 +92,7 @@ in {
       (app "thunderbird" "/usr/bin/thunderbird")
       (app "xbindkeys" "/usr/bin/xbindkeys")
       (app "xmonad" "/usr/bin/xmonad --replace")
+      (app "workrave" "/usr/bin/workrave")
     ])
   ];
 

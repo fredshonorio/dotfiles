@@ -32,6 +32,7 @@ yay-needed playerctl
 yay-needed flameshot
 yay-needed xfce4-pulseaudio-plugin
 yay-needed keepassxc
+yay-needed workrave
 ## for volume keys
 yay-needed xfce4-volumed-pulse
 yay-needed systembus-notify
