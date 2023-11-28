@@ -31,13 +31,13 @@ in {
     pkgs.nixfmt
     pkgs.gum
     pkgs.entr
-    pkgs.du-dust
-    pkgs.procs
-    pkgs.tealdeer
-    pkgs.lsd
-    pkgs.coursier
-    pkgs.helix
-    pkgs.metals
+    # pkgs.du-dust
+    # pkgs.procs
+    # pkgs.tealdeer
+    # pkgs.lsd
+    # pkgs.coursier
+    # pkgs.helix
+    # pkgs.metals
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
