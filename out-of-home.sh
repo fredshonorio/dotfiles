@@ -33,6 +33,9 @@ ensure-file () {
             echo -e "\e[32m'$dst': exists and is identical\033[0m"
         else
             echo -e "\e[31m'$dst': exists but doesn't match\033[0m"
+            echo "Helpful commands:"
+            echo "meld '$src' '$dst'"
+            echo "cp '$dst' '$src'"
             exit 1
         fi
     fi
