@@ -77,6 +77,8 @@ in {
       # polybar
       ".config/polybar/config.ini".source = files/polybar/config.ini;
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
+      ".bin/dnd.sh".source = files/polybar/dnd.sh;
+      ".bin/toggle-dnd.sh".source = files/polybar/toggle-dnd.sh;
 
       ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
         owner = "fboender";
