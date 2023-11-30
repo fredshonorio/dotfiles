@@ -7,7 +7,8 @@ dnd_status=$(xfconf-query -c xfce4-notifyd -p /do-not-disturb)
 
 if [[ $dnd_status == true ]]
 then
-    echo "dnd:on"
+    # colors.green in polybar/config.ini
+    echo '%{F#A6E22E}dnd!%{F-}'
 else
-    echo "dnd:off"
+    echo "dnd"
 fi
