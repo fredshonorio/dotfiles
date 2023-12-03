@@ -10,5 +10,5 @@ then
     # colors.green in polybar/config.ini
     echo '%{F#A6E22E}dnd!%{F-}'
 else
-    echo "dnd"
+    echo "dnd?"
 fi
