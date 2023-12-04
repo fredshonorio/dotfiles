@@ -182,6 +182,8 @@ in {
       tss = "terraform state show";
       tsl = "terraform state list | grep";
       ti = "terraform import";
+      # git
+      gitl = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
     };
   };
 
