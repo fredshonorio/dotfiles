@@ -68,4 +68,4 @@ replace-file-su "disable-caps-lock.sh" "/etc/X11/xinit/xinitrc.d/99-disable-caps
 # intellij 
 # technically in $HOME, but not managed by home manager because idk how IJ
 # handles a file with no write permissions
-ensure-file xwin-copy.xml "$HOME/.config/JetBrains/IdeaIC2023.2/keymaps/XWin copy.xml"
+ensure-file xwin-copy.xml "$HOME/.config/JetBrains/IdeaIC2023.3/keymaps/XWin copy.xml"
