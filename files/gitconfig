@@ -49,3 +49,7 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[http]
+  lowSpeedLimit = 1000
+  lowSpeedTime = 10
+
