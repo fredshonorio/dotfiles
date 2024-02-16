@@ -24,6 +24,7 @@
   diffFilter = delta --color-only
 [push]
   default = current
+  autoSetupRemote = true
 [fetch]
   # remove invalid references to remote branches that are missing
   prune = true
