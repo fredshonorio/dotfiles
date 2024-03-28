@@ -2,7 +2,7 @@ import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className, appName
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, modMask, mod4Mask, noModMask
-                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s
+                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w
                                    , screenWorkspace, whenJust, windows
                                    )
 import XMonad.Actions.SpawnOn      (spawnHere)
@@ -20,7 +20,7 @@ import XMonad.Layout.TwoPane       (TwoPane(..))
 import XMonad.Layout.Named         (named)
 import XMonad.Layout.NoBorders     (noBorders, smartBorders)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
-import XMonad.Operations           (sendMessage, screenWorkspace, windows)
+import XMonad.Operations           (sendMessage, screenWorkspace, windows, kill)
 import XMonad.Util.Run             (spawnPipe, hPutStrLn, safeSpawn)
 import XMonad.Actions.WindowBringer (WindowBringerConfig(..), gotoMenuConfig)
 import XMonad.StackSet (tag)
@@ -115,6 +115,8 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     , ((mod,               xK_c), gotoMenuConfig rofiCfg)
     , ((mod .|. shiftMask, xK_q), spawn "xfce4-session-logout")
     , ((mod .|. shiftMask, xK_t), spawn "sakura -t sakura_float -r 20 -c 150")
+    , ((mod,               xK_t), spawn myTerminal)
+    , ((mod,               xK_w), kill)
     -- , ((mod .|. shiftMask, xK_s), sendMessage $ SwapWindow)   -- only usable in combineTwoP (streams) layout
     , ((mod              , xK_f), sendMessage $ ToggleLayout) -- toggle fullscreen
     , ((mod              , xK_b), sendMessage $ ToggleStruts) -- toggle struts
