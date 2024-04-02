@@ -36,7 +36,7 @@ in {
     # pkgs.tealdeer
     pkgs.lsd
     # pkgs.coursier
-    pkgs.helix
+    pkgs.micro
     # pkgs.metals
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -99,8 +99,8 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
+    EDITOR = "micro";
+    VISUAL = "micro";
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
     LC_ALL =
       "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
@@ -151,7 +151,7 @@ in {
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
-      v = "hx";
+      v = "micro";
       # ls
       ls = "lsd";
       l = "lsd -lFh";
