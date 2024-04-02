@@ -86,6 +86,15 @@ in {
         rev = "2.2";
         sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
       } + "/mgitstatus";
+
+      ".local/share/rofi/themes/tokyonight.rasi".text =
+        lib.replaceStrings [ "lines: 8;" ] [ "" ] (lib.readFile
+          (pkgs.fetchFromGitHub {
+            owner = "Murzchnvok";
+            repo = "rofi-collection";
+            rev = "f1f063f00403a292581375aff51981b4d14850b2";
+            sha256 = "sha256-s1ENTByJuWlL1gYuWgcrNQ+2McLucDjGUwgXBYAwAW4=";
+          } + "/tokyonight/tokyonight.rasi"));
     }
     (autostart [
       (app "discord" "/usr/bin/discord")
@@ -183,7 +192,8 @@ in {
       tsl = "terraform state list | grep";
       ti = "terraform import";
       # git
-      gitl = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
+      gitl =
+        "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
     };
   };
 

@@ -22,7 +22,7 @@ import XMonad.Layout.NoBorders     (noBorders, smartBorders)
 import XMonad.Layout.ToggleLayouts (ToggleLayout(..), toggleLayouts)
 import XMonad.Operations           (sendMessage, screenWorkspace, windows, kill)
 import XMonad.Util.Run             (spawnPipe, hPutStrLn, safeSpawn)
-import XMonad.Actions.WindowBringer (WindowBringerConfig(..), gotoMenuConfig)
+-- import XMonad.Actions.WindowBringer (WindowBringerConfig(..), gotoMenuConfig)
 import XMonad.StackSet (tag)
 import XMonad.Util.NamedWindows (getName)
 import XMonad.Hooks.EwmhDesktops (ewmh)
@@ -105,14 +105,15 @@ layouts = avoidStruts $ toggleLayouts full rest
     rest    = smartBorders $ (tall ||| twoPane ||| grid) -- add spacing to all layouts except full
 
 -- https://xmonad.github.io/xmonad-docs/xmonad-contrib/src/XMonad.Actions.WindowBringer.html
-rofiCfg :: WindowBringerConfig
-rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName (\_ -> return True)
+-- rofiCfg :: WindowBringerConfig
+-- rofiCfg = WindowBringerConfig "rofi" ["-dmenu", "-i"] decorateName (\_ -> return True)
 
 myKeys (XConfig {modMask = mod}) = M.fromList $
     [ ((mod,               xK_p), spawn "rofi -show run -modi run")
     , ((mod .|. shiftMask, xK_p), spawn "xfce4-appfinder")
     , ((mod,               xK_e), spawn "thunar")
-    , ((mod,               xK_c), gotoMenuConfig rofiCfg)
+    -- , ((mod,               xK_c), gotoMenuConfig rofiCfg)
+    , ((mod,               xK_c), spawn "rofi -show window -modi window")
     , ((mod .|. shiftMask, xK_q), spawn "xfce4-session-logout")
     , ((mod .|. shiftMask, xK_t), spawn "sakura -t sakura_float -r 20 -c 150")
     , ((mod,               xK_t), spawn myTerminal)
