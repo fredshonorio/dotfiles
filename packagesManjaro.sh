@@ -8,6 +8,8 @@ function yay-needed() {
 yay-needed ttf-meslo-nerd-font-powerlevel10k
 yay-needed ttf-iosevka-nerd
 yay-needed ttf-droid
+yay-needed ttf-jetbrains-mono-nerd
+yay-needed papirus-icon-theme
 ## for discord
 yay-needed noto-fonts-cjk  
 yay-needed noto-fonts-emoji
@@ -50,7 +52,7 @@ yay-needed python-pipenv
 yay-needed pyenv
 # dev scala
 yay-needed sbt
-yay-needed intellij-idea-community-edition
+# yay-needed intellij-idea-community-edition
 # dev js
 yay-needed nvm
 # misc
