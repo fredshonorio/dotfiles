@@ -6,4 +6,4 @@ ip="192.168.1.85"
 host="cortex"
 
 (ssh $host x11vnc -display :0) &
-(sleep 1 && vncviewer $ip)
+(sleep 2 && vncviewer $ip)
