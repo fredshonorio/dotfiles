@@ -105,6 +105,7 @@ in {
       (app "xbindkeys" "/usr/bin/xbindkeys")
       (app "xmonad" "/usr/bin/xmonad --replace")
       (app "workrave" "/usr/bin/workrave")
+      (app "heynote" "/usr/bin/heynote")
     ])
   ];
 
