@@ -38,6 +38,7 @@ in {
     # pkgs.coursier
     pkgs.micro
     # pkgs.metals
+    pkgs.securefs
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
