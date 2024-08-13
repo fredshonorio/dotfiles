@@ -117,7 +117,8 @@ in {
       "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
   };
 
-  home.sessionPath = [ "$HOME/.bin" ];
+  # remember this is only set when xorg starts
+  home.sessionPath = [ "$HOME/.bin" "$HOME/.cargo/bin" ];
 
   programs.home-manager.enable = true;
 
