@@ -44,12 +44,12 @@
   autosquash = true
 [fixup]
   rebase = true
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+# [credential "https://github.com"]
+# 	helper = 
+# 	helper = !/usr/bin/gh auth git-credential
+# [credential "https://gist.github.com"]
+# 	helper = 
+# 	helper = !/usr/bin/gh auth git-credential
 [http]
   lowSpeedLimit = 1000
   lowSpeedTime = 10
