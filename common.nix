@@ -39,6 +39,7 @@ in {
     pkgs.micro
     # pkgs.metals
     pkgs.securefs
+    pkgs.git-subrepo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
