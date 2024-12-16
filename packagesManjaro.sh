@@ -9,6 +9,7 @@ yay-needed ttf-meslo-nerd-font-powerlevel10k
 yay-needed ttf-iosevka-nerd
 yay-needed ttf-droid
 yay-needed ttf-jetbrains-mono-nerd
+yay-needed ttf-nerd-fonts-symbols
 yay-needed papirus-icon-theme
 ## for discord
 yay-needed noto-fonts-cjk  
