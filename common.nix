@@ -40,6 +40,7 @@ in {
     # pkgs.metals
     pkgs.securefs
     pkgs.git-subrepo
+    pkgs.aws-vault
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -116,6 +117,7 @@ in {
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
     LC_ALL =
       "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
+    AWS_VAULT_BACKEND = "file";
   };
 
   # remember this is only set when xorg starts
