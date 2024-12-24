@@ -5,11 +5,11 @@ function yay-needed() {
 }
 
 # fonts
-yay-needed ttf-meslo-nerd-font-powerlevel10k
-yay-needed ttf-iosevka-nerd
-yay-needed ttf-droid
+yay-needed ttf-meslo-nerd-font-powerlevel10k # used by wezterm, ij, polybar
+# yay-needed ttf-iosevka-nerd
+yay-needed ttf-droid # used by vscode
 yay-needed ttf-jetbrains-mono-nerd
-yay-needed ttf-nerd-fonts-symbols
+yay-needed ttf-nerd-fonts-symbols # polybar
 yay-needed papirus-icon-theme
 ## for discord
 yay-needed noto-fonts-cjk  
@@ -33,11 +33,11 @@ yay-needed rofi
 yay-needed xbindkeys
 yay-needed playerctl
 yay-needed flameshot
-yay-needed xfce4-pulseaudio-plugin
+# yay-needed xfce4-pulseaudio-plugin
 yay-needed keepassxc
 yay-needed workrave
 ## for volume keys
-yay-needed xfce4-volumed-pulse
+# yay-needed xfce4-volumed-pulse
 yay-needed systembus-notify
 yay-needed earlyoom
 # comms

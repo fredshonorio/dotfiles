@@ -6,7 +6,3 @@ aws-vault
 - figure out a solution for maven repo
 
 see where i'm using iosevka font, the manjaro package is really annoying, document fonts used in intellij
-
-add pkgs
-papirus-icon-theme
-ttf-jetbrains-mono-nerd
