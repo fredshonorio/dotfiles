@@ -90,6 +90,7 @@ in {
         sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
       } + "/mgitstatus";
 
+      # the theme enforces a limit of 8 lines, remove it
       ".local/share/rofi/themes/tokyonight.rasi".text =
         lib.replaceStrings [ "lines: 8;" ] [ "" ] (lib.readFile
           (pkgs.fetchFromGitHub {
