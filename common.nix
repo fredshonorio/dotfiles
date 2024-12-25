@@ -112,6 +112,7 @@ in {
     ])
   ];
 
+  # remember this is only set when xorg starts
   home.sessionVariables = {
     EDITOR = "micro";
     VISUAL = "micro";
@@ -167,7 +168,6 @@ in {
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
-      v = "micro";
       # ls
       ls = "lsd";
       l = "lsd -lFh";
