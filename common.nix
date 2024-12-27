@@ -41,6 +41,7 @@ in {
     pkgs.securefs
     pkgs.git-subrepo
     pkgs.aws-vault
+    pkgs.kondo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
