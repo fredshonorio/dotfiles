@@ -59,7 +59,7 @@ yay-needed nvm
 # misc
 yay-needed obsidian
 yay-needed syncthing
-
+yay-needed base-devel
 #
 # AUR packages
 #
