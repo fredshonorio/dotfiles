@@ -124,7 +124,7 @@ in {
   };
 
   # remember this is only set when xorg starts
-  home.sessionPath = [ "$HOME/.bin" "$HOME/.cargo/bin" ];
+  home.sessionPath = [ "$HOME/.bin" "$HOME/.cargo/bin" "$HOME/.local/share/JetBrains/Toolbox/scripts/" ];
 
   programs.home-manager.enable = true;
 
