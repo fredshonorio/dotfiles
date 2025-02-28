@@ -141,9 +141,8 @@ in {
         source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
       source ~/.p10k.zsh
-      #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-      export SDKMAN_DIR="$HOME/.sdkman"
-      [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+      eval "$(jenv init -)"
+      # this should run once after jenv is installed, jenv enable-plugin export &> /dev/null
       bindkey "^[[H"  beginning-of-line # home key
       bindkey "^[[F"  end-of-line       # end key
       bindkey "^[[3~" delete-char       # delete key
