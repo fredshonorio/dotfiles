@@ -1,6 +1,10 @@
 { config, pkgs, lib, myLib, ... }:
 
-{
+let
+  mkSingleAuto = name: path: {
+    home.file = myLib.autostart { ${name} = path; };
+  };
+in {
   files = {
     # fixes stuttering with the UR22kmII on recent kernels (maybe?)
     desktopAudioInterfaceFix = {
@@ -9,9 +13,10 @@
     };
   };
 
-  # homemanager entry for auto start
-  thunderbird = {
-    home.file = myLib.autostart { thunderbird = "/usr/bin/thunderbird"; };
+  # homemanager autostart entries
+  autostart = {
+    thunderbird = mkSingleAuto "thunderbird" "/usr/bin/thunderbird";
+    workrave = mkSingleAuto "workrave" "/usr/bin/workrave";
   };
 
 }

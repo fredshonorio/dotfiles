@@ -11,6 +11,7 @@ in lib.mkMerge [
   #    home.file =
   #      extra.files.desktopAudioInterfaceFix; # override (merged recursively)
   #  }
-  extra.thunderbird
+  extra.autostart.thunderbird
+  extra.autostart.workrave
 ]
 

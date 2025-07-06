@@ -88,7 +88,6 @@ in with myLib; {
       "signal" = "/usr/bin/signal-desktop";
       "xbindkeys" = "/usr/bin/xbindkeys";
       "xmonad" = "/usr/bin/xmonad --replace";
-      "workrave" = "/usr/bin/workrave";
     })
   ];
 
