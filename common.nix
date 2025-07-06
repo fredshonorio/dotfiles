@@ -25,23 +25,23 @@ in {
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
 
-  home.packages = [
-    pkgs.direnv
-    pkgs.fzf
-    pkgs.nixfmt
-    pkgs.gum
-    pkgs.entr
-    # pkgs.du-dust
-    # pkgs.procs
-    # pkgs.tealdeer
-    pkgs.lsd
-    # pkgs.coursier
-    pkgs.micro
-    # pkgs.metals
-    pkgs.securefs
-    pkgs.git-subrepo
-    pkgs.aws-vault
-    pkgs.kondo
+  home.packages = with pkgs; [
+    direnv
+    fzf
+    nixfmt
+    gum
+    entr
+    # du-dust
+    # procs
+    # tealdeer
+    lsd
+    # coursier
+    micro
+    # metals
+    securefs
+    git-subrepo
+    aws-vault
+    kondo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
