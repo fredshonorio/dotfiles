@@ -11,6 +11,7 @@
 
   # homemanager entry for auto start
   thunderbird = {
-    home.file = myLib.autostart [[ "thunderbird" "/usr/bin/thunderbird" ]];
+    home.file = myLib.autostart { thunderbird = "/usr/bin/thunderbird"; };
   };
+
 }

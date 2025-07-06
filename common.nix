@@ -1,10 +1,7 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  autostart = myLib.autostart;
-  app = myLib.app;
-
-in {
+in with myLib; {
   home.username = "fred";
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
@@ -85,23 +82,14 @@ in {
             sha256 = "sha256-s1ENTByJuWlL1gYuWgcrNQ+2McLucDjGUwgXBYAwAW4=";
           } + "/tokyonight/tokyonight.rasi"));
     }
-    (autostart [
-      [ "discord" "/usr/bin/discord" ]
-      [ "obsidian" "/usr/bin/obsidian" ]
-      [
-        "signal"
-        "/usr/bin/signal-desktop"
-      ]
-      # [ "thunderbird" "/usr/bin/thunderbird" ]
-      [ "xbindkeys" "/usr/bin/xbindkeys" ]
-      [ "xmonad" "/usr/bin/xmonad --replace" ]
-      [
-        "workrave"
-        "/usr/bin/workrave"
-      ]
-
-      # ( "heynote" "/usr/bin/heynote")
-    ])
+    (autostart {
+      "discord" = "/usr/bin/discord";
+      "obsidian" = "/usr/bin/obsidian";
+      "signal" = "/usr/bin/signal-desktop";
+      "xbindkeys" = "/usr/bin/xbindkeys";
+      "xmonad" = "/usr/bin/xmonad --replace";
+      "workrave" = "/usr/bin/workrave";
+    })
   ];
 
   # remember this is only set when xorg starts

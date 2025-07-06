@@ -1,23 +1,19 @@
 { lib, ... }:
 
 {
-  autostart = apps:
+  autostart = apps: # apps: { <app-name>: <app-bin-path>, ... }
     let
       # { name: str, exec: str } -> { <path>: { source: file? } }
-      autostartEntry = arg: {
-        ".config/autostart/${builtins.elemAt arg 0}.desktop".text = ''
+      autostartEntry = name: exec: {
+        ".config/autostart/${name}.desktop".text = ''
           [Desktop Entry]
-          Name=${builtins.elemAt arg 0}
-          Exec=${builtins.elemAt arg 1}
+          Name=${name}
+          Exec=${exec}
           Terminal=false
           Type=Application
         '';
       };
-    in lib.attrsets.mergeAttrsList (map autostartEntry apps);
+    in lib.attrsets.concatMapAttrs autostartEntry apps;
 
-  app = name: exec: {
-    name = name;
-    exec = exec;
-  };
 }
 
