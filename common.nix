@@ -105,7 +105,7 @@ in {
       (app "discord" "/usr/bin/discord")
       (app "obsidian" "/usr/bin/obsidian")
       (app "signal" "/usr/bin/signal-desktop")
-      (app "evolution" "/usr/bin/evolution")
+      (app "thunderbird" "/usr/bin/thunderbird")
       (app "xbindkeys" "/usr/bin/xbindkeys")
       (app "xmonad" "/usr/bin/xmonad --replace")
       (app "workrave" "/usr/bin/workrave")
