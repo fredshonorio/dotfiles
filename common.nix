@@ -1,24 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
-  autostart = apps:
-    let
-      # { name: str, exec: str } -> { <path>: { source: file? } }
-      autostartEntry = args: {
-        ".config/autostart/${args.name}.desktop".text = ''
-          [Desktop Entry]
-          Name=${args.name}
-          Exec=${args.exec}
-          Terminal=false
-          Type=Application
-        '';
-      };
-    in lib.attrsets.mergeAttrsList (map autostartEntry apps);
-
-  app = name: exec: {
-    name = name;
-    exec = exec;
-  };
+  autostart = myLib.autostart;
+  app = myLib.app;
 
 in {
   home.username = "fred";
@@ -102,14 +86,21 @@ in {
           } + "/tokyonight/tokyonight.rasi"));
     }
     (autostart [
-      (app "discord" "/usr/bin/discord")
-      (app "obsidian" "/usr/bin/obsidian")
-      (app "signal" "/usr/bin/signal-desktop")
-      (app "thunderbird" "/usr/bin/thunderbird")
-      (app "xbindkeys" "/usr/bin/xbindkeys")
-      (app "xmonad" "/usr/bin/xmonad --replace")
-      (app "workrave" "/usr/bin/workrave")
-      # (app "heynote" "/usr/bin/heynote")
+      [ "discord" "/usr/bin/discord" ]
+      [ "obsidian" "/usr/bin/obsidian" ]
+      [
+        "signal"
+        "/usr/bin/signal-desktop"
+      ]
+      # [ "thunderbird" "/usr/bin/thunderbird" ]
+      [ "xbindkeys" "/usr/bin/xbindkeys" ]
+      [ "xmonad" "/usr/bin/xmonad --replace" ]
+      [
+        "workrave"
+        "/usr/bin/workrave"
+      ]
+
+      # ( "heynote" "/usr/bin/heynote")
     ])
   ];
 
@@ -124,7 +115,11 @@ in {
   };
 
   # remember this is only set when xorg starts
-  home.sessionPath = [ "$HOME/.bin" "$HOME/.cargo/bin" "$HOME/.local/share/JetBrains/Toolbox/scripts/" ];
+  home.sessionPath = [
+    "$HOME/.bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.local/share/JetBrains/Toolbox/scripts/"
+  ];
 
   programs.home-manager.enable = true;
 
@@ -137,8 +132,8 @@ in {
     '';
 
     initExtra = ''
-      if [[ -r "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
       source ~/.p10k.zsh
       eval "$(jenv init -)"

@@ -1,11 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
-  common = import ./common.nix {
-    config = config;
-    pkgs = pkgs;
-    lib = lib;
-  };
+  myLib = import ./myLib.nix { inherit lib; };
+  common = import ./common.nix { inherit config pkgs lib myLib; };
 
 in lib.mkMerge [
   common # base

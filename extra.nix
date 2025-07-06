@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 {
   files = {
@@ -9,4 +9,8 @@
     };
   };
 
+  # homemanager entry for auto start
+  thunderbird = {
+    home.file = myLib.autostart [[ "thunderbird" "/usr/bin/thunderbird" ]];
+  };
 }

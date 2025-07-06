@@ -1,23 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
-  common = import ./common.nix {
-    config = config;
-    pkgs = pkgs;
-    lib = lib;
-  };
-
-  extra = import ./extra.nix {
-    config = config;
-    pkgs = pkgs;
-    lib = lib;
-  };
+  myLib = import ./myLib.nix { inherit lib; };
+  common = import ./common.nix { inherit config pkgs lib myLib; };
+  extra = import ./extra.nix { inherit config pkgs lib myLib; };
 
 in lib.mkMerge [
   common # base
-#  { replaced pipewire with pulseaudio because this fix wasn't fixing anything
-#    home.file =
-#      extra.files.desktopAudioInterfaceFix; # override (merged recursively)
-#  }
+  #  { replaced pipewire with pulseaudio because this fix wasn't fixing anything
+  #    home.file =
+  #      extra.files.desktopAudioInterfaceFix; # override (merged recursively)
+  #  }
+  extra.thunderbird
 ]
 
