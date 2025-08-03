@@ -12,7 +12,7 @@ set -ex
 # Home manager
 #
 
-home-manager switch
+home-manager switch # TODO: fix, check if host-<hostname>.nix file exists and use it
 
 #
 # out of home config
