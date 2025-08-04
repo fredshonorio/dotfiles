@@ -23,6 +23,7 @@ in with myLib; {
     git-subrepo
     aws-vault
     kondo
+    btop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -106,6 +107,7 @@ in with myLib; {
     "$HOME/.bin"
     "$HOME/.cargo/bin"
     "$HOME/.local/share/JetBrains/Toolbox/scripts/"
+    "$HOME/.local/share/coursier/bin"
   ];
 
   programs.home-manager.enable = true;
