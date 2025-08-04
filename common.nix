@@ -1,7 +1,15 @@
-{ config, pkgs, lib, myLib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  myLib,
+  ...
+}:
 
 let
-in with myLib; {
+in
+with myLib;
+{
   home.username = "fred";
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
@@ -52,8 +60,7 @@ in with myLib; {
       ".config/rofi/config.rasi".source = files/rofi-config.rasi;
       ".config/wezterm/wezterm.lua".source = files/wezterm/wezterm.lua;
       ".bin/c-ps".source = files/bin/c-ps;
-      ".bin/git-branch-delete-fzf.zsh".source =
-        files/bin/git-branch-delete-fzf.zsh;
+      ".bin/git-branch-delete-fzf.zsh".source = files/bin/git-branch-delete-fzf.zsh;
       ".bin/flx".source = files/bin/flx;
 
       # navi
@@ -66,22 +73,27 @@ in with myLib; {
       ".bin/dnd.sh".source = files/polybar/dnd.sh;
       ".bin/toggle-dnd.sh".source = files/polybar/toggle-dnd.sh;
 
-      ".bin/mgitstatus".source = pkgs.fetchFromGitHub {
-        owner = "fboender";
-        repo = "multi-git-status";
-        rev = "2.2";
-        sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
-      } + "/mgitstatus";
+      ".bin/mgitstatus".source =
+        pkgs.fetchFromGitHub {
+          owner = "fboender";
+          repo = "multi-git-status";
+          rev = "2.2";
+          sha256 = "jzoX7Efq9+1UdXQdhLRqBlhU3cBrk5AZblg9AYetItg=";
+        }
+        + "/mgitstatus";
 
       # the theme enforces a limit of 8 lines, remove it
-      ".local/share/rofi/themes/tokyonight.rasi".text =
-        lib.replaceStrings [ "lines: 8;" ] [ "" ] (lib.readFile
-          (pkgs.fetchFromGitHub {
+      ".local/share/rofi/themes/tokyonight.rasi".text = lib.replaceStrings [ "lines: 8;" ] [ "" ] (
+        lib.readFile (
+          pkgs.fetchFromGitHub {
             owner = "Murzchnvok";
             repo = "rofi-collection";
             rev = "f1f063f00403a292581375aff51981b4d14850b2";
             sha256 = "sha256-s1ENTByJuWlL1gYuWgcrNQ+2McLucDjGUwgXBYAwAW4=";
-          } + "/tokyonight/tokyonight.rasi"));
+          }
+          + "/tokyonight/tokyonight.rasi"
+        )
+      );
     }
     (autostart {
       "discord" = "/usr/bin/discord";
@@ -97,8 +109,7 @@ in with myLib; {
     EDITOR = "micro";
     VISUAL = "micro";
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
-    LC_ALL =
-      "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
+    LC_ALL = "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
     AWS_VAULT_BACKEND = "file";
   };
 
@@ -183,16 +194,15 @@ in with myLib; {
       tsl = "terraform state list | grep";
       ti = "terraform import";
       # git
-      gitl =
-        "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
+      gitl = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
     };
   };
 
   # programs.oh-my-posh.enable = true;
   # programs.oh-my-posh.useTheme = "emodipt-extend";
-  programs.oh-my-posh.settings = builtins.fromJSON
-    (builtins.unsafeDiscardStringContext
-      (builtins.readFile files/emodipt-extend-fred.omp.json));
+  programs.oh-my-posh.settings = builtins.fromJSON (
+    builtins.unsafeDiscardStringContext (builtins.readFile files/emodipt-extend-fred.omp.json)
+  );
 
   programs.zoxide.enable = true;
 
@@ -203,5 +213,9 @@ in with myLib; {
   programs.carapace.enable = true;
 
   programs.navi.enable = true;
-  programs.navi.settings = { cheats = { paths = [ "~/.bin/cheats" ]; }; };
+  programs.navi.settings = {
+    cheats = {
+      paths = [ "~/.bin/cheats" ];
+    };
+  };
 }
