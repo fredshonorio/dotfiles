@@ -2,7 +2,7 @@ import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className, appName
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, modMask, mod4Mask, noModMask
-                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v
+                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v, xK_d
                                    , screenWorkspace, whenJust, windows
                                    )
 import XMonad.Actions.SpawnOn      (spawnHere)
@@ -127,7 +127,7 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     , ((mod .|. shiftMask, xK_v), nextMatch Backward isOnAnyVisibleWS)
     ] ++
     [((m .|. mod, key), screenWorkspace sc >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_a, xK_s] [0..]
+      | (key, sc) <- zip [xK_a, xK_s, xK_d] [0..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
