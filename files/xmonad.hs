@@ -126,9 +126,9 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     , ((mod              , xK_v), nextMatch Forward isOnAnyVisibleWS)
     , ((mod .|. shiftMask, xK_v), nextMatch Backward isOnAnyVisibleWS)
     ] ++
-    [((m .|. mod, key), screenWorkspace sc >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_a, xK_s, xK_d] [0..]
-      , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    [((mask .|. mod, key), screenWorkspace sc >>= flip whenJust (windows . action))
+      | (key, sc) <- zip [xK_a, xK_s, xK_d] [0, 2, 1] -- screen order
+      , (action, mask) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
 startup =
