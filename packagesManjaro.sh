@@ -48,6 +48,8 @@ yay-needed terraform
 yay-needed make
 yay-needed meld
 yay-needed docker-compose
+yay-needed nvidia-container-toolkit
+yay-needed bind # for dig, nslookup
 # dev python
 yay-needed python-pipenv
 yay-needed pyenv
