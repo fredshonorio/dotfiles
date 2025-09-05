@@ -6,5 +6,6 @@ let
 
 in lib.mkMerge [
   common # base
+  extra.autostart.thunderbird
 ]
 
