@@ -6,3 +6,8 @@ aws-vault
 - figure out a solution for maven repo
 
 see where i'm using iosevka font, the manjaro package is really annoying, document fonts used in intellij
+
+
+       │ File: /home/fred/.config/nixpkgs/config.nix
+───────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ { allowUnfree = true; }
