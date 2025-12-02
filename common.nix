@@ -31,7 +31,7 @@ with myLib;
     git-subrepo
     aws-vault
     kondo
-    btop
+    # btop -- the nixpkgs version doesn't seem to have gpu support, using the arch version instead
     jq
     just
 
