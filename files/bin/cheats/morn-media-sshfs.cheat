@@ -1,0 +1,16 @@
+% sshfs media
+# mount morningstar media
+
+usr="fred"
+host="morningstar"
+dir="/mnt/morningstar-media"
+
+if [ ! -d "$dir" ]; then
+  echo "$dir does not exist."
+  echo "create it with # sudo mkdir $dir && sudo chown $(whoami):$(whoami) $dir"
+  exit 1
+fi
+
+sshfs -o default_permissions $usr@$host:/media $dir
+
+echo "mounted $dir"
