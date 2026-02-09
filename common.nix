@@ -190,6 +190,8 @@ with myLib;
       '';
       # terraform
       tpx = "terraform plan -out x";
+      tga = "terragrunt apply x";
+      tgp = "terragrunt plan -out x";
       tax = "terraform apply x";
       tfmt = "terraform fmt -recursive";
       tss = "terraform state show";
