@@ -31,12 +31,13 @@
   prune = true
 [merge]
   tool = meld
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [pull]
   ff = only
 [diff]
   tool = meld
   colorMoved = default
+  external = difft
 [status]
   showUntrackedFiles = all
 [init]

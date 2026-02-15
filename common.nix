@@ -35,6 +35,7 @@ with myLib;
     # btop -- the nixpkgs version doesn't seem to have gpu support, using the arch version instead
     jq
     just
+    difftastic
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
