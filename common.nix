@@ -103,6 +103,8 @@ with myLib;
       "signal" = "/usr/bin/signal-desktop";
       "xbindkeys" = "/usr/bin/xbindkeys";
       "xmonad" = "/usr/bin/xmonad --replace";
+      "git-repo-tray" =
+        "bash -c 'cd /home/fred/.bin/git-repo-tray && uv sync --quiet && uv run git-repo-tray'";
     })
   ];
 
