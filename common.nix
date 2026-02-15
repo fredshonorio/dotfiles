@@ -71,10 +71,11 @@ with myLib;
       ".bin/cheats/".source = files/bin/cheats;
 
       # polybar
-      ".config/polybar/config.ini".text = lib.replaceStrings
-        [ "thermal-zone = 0" ]
-        [ (if polybar-hwmonPath != null then "hwmon-path = ${polybar-hwmonPath}" else "thermal-zone = 0") ]
-        (builtins.readFile files/polybar/config.ini);
+      ".config/polybar/config.ini".text =
+        lib.replaceStrings
+          [ "thermal-zone = 0" ]
+          [ (if polybar-hwmonPath != null then "hwmon-path = ${polybar-hwmonPath}" else "thermal-zone = 0") ]
+          (builtins.readFile files/polybar/config.ini);
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
       ".bin/dnd.sh".source = files/polybar/dnd.sh;
       ".bin/toggle-dnd.sh".source = files/polybar/toggle-dnd.sh;
