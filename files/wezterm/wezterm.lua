@@ -7,5 +7,12 @@ return {
   check_for_updates = false,
   enable_tab_bar = false,
   color_scheme = "Espresso",
+  keys = {
+    {
+      key = 'Enter',
+      mods = 'SHIFT',
+      action = wezterm.action.SendString('\x1b[13;2u'),
+    },
+  }
 }
 
