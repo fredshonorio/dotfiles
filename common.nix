@@ -124,6 +124,13 @@ with myLib;
     })
   ];
 
+  # kinda imperative, but it works for now
+  home.activation.cloneGitRepoTray = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -d "$HOME/.bin/git-repo-tray/.git" ]; then
+      GIT_SSH_COMMAND="${pkgs.openssh}/bin/ssh" ${pkgs.git}/bin/git clone git@git.tsa.fredh.space:fred/git-repo-tray.git "$HOME/.bin/git-repo-tray"
+    fi
+  '';
+
   # remember this is only set when xorg starts
   home.sessionVariables = {
     EDITOR = "micro";

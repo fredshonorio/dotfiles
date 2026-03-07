@@ -1,0 +1,18 @@
+# git-repo-tray configuration
+
+[settings]
+# How often to check repos, in seconds
+interval = 300
+icon_background = "#222222"
+
+# Each [[repos]] entry defines a repository to watch.
+# `path` is the absolute path to the git repository.
+# `branches` is the list of branches to monitor.
+
+[[repos]]
+path = "/home/fred/.ssh/shared"
+branches = ["main"]
+
+[[repos]]
+path = "/home/fred/.dotfiles"
+branches = ["main"]

@@ -33,4 +33,7 @@ in
 lib.mkMerge [
   common # base
   extra.autostart.thunderbird
+  {
+    home.file.".config/git-repo-tray/config.toml".source = ./files/git-repo-tray/config.toml;
+  }
 ]
