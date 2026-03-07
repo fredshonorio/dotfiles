@@ -119,6 +119,7 @@ with myLib;
       "element-desktop" = "/usr/bin/element-desktop";
       "xbindkeys" = "/usr/bin/xbindkeys";
       "xmonad" = "/usr/bin/xmonad --replace";
+      "lunatask" = "/usr/bin/lunatask";
       "git-repo-tray" =
         "bash -c 'cd /home/fred/.bin/git-repo-tray && uv sync --quiet && uv run git-repo-tray'";
     })
