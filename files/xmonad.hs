@@ -91,7 +91,7 @@ manageHooks = composeAll
   [ isFullscreen                     --> doFullFloat -- without this vlc doesn't correctly come out of full screen
   , wmName    =? "sakura_float"      --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "Krita - Edit Text" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
-  , wmName    =? "xfce4-notifyd"     --> doIgnore
+  , appName   =? "dunst"             --> doIgnore
   , appName   =? "copyq"             --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   ]
   where
@@ -136,6 +136,7 @@ startup =
     setWMName "LG3D"                                       -- required for java apps
     spawnHere ("feh --randomize --bg-fill " ++ wallpapers) -- load random wallpaper
     spawn startPolybar
+    spawn "dunst"
 
 -- transparency for inactive windows
 transparencyHook = fadeInactiveLogHook 0.97 -- percent
