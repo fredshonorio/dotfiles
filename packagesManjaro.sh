@@ -4,6 +4,8 @@ function yay-needed() {
     yay -S $(yay -Qi $1 2>&1 >/dev/null | grep "error: package" | grep "was not found" | cut -d"'" -f2 | tr "\n" " ")
 }
 
+sudo systemctl --user disable xfce4-notifyd
+
 # fonts
 yay-needed ttf-meslo-nerd-font-powerlevel10k # used by wezterm, ij, polybar
 # yay-needed ttf-iosevka-nerd
@@ -33,6 +35,7 @@ yay-needed rofi
 yay-needed xbindkeys
 yay-needed playerctl
 yay-needed flameshot
+yay-needed dunst
 # yay-needed xfce4-pulseaudio-plugin
 yay-needed keepassxc
 yay-needed workrave

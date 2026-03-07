@@ -102,6 +102,15 @@ with myLib;
           + "/tokyonight/tokyonight.rasi"
         )
       );
+      
+      ".config/dunst/dunstrc".text = 
+          pkgs.fetchFromGitHub {
+            owner = "Yutsuten";
+            repo = "linux-config";
+            rev = "91628d16ead439e31f82f5c917282e95f43d8789";
+            sha256 = "sha256-s1ENTByJuWlL1gYuWgcrNQ+2McLucDjGUwgXBYAwAW4=";
+          }
+          + "/desktop/dunstrc.conf";
     }
     (autostart {
       "discord" = "/usr/bin/discord";
