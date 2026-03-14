@@ -1,0 +1,2 @@
+key = "~/.ssh/shared/meshapp-main.pem.priv"
+sshConf = "~/.ssh/shared/aws.conf"
