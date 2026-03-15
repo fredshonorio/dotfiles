@@ -117,7 +117,6 @@ with myLib;
       "discord" = "/usr/bin/discord";
       "obsidian" = "/usr/bin/obsidian";
       "signal" = "/usr/bin/signal-desktop";
-      "element-desktop" = "/usr/bin/element-desktop";
       "xbindkeys" = "/usr/bin/xbindkeys";
       "xmonad" = "/usr/bin/xmonad --replace";
       "lunatask" = "/usr/bin/lunatask";
