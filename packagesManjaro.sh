@@ -54,6 +54,7 @@ yay-needed meld
 yay-needed docker-compose
 yay-needed nvidia-container-toolkit
 yay-needed bind # for dig, nslookup
+yay-needed aws-cli-v2
 # dev python
 yay-needed python-pipenv
 yay-needed pyenv
@@ -79,3 +80,4 @@ yay-needed spotify
 yay-needed ttf-symbola # for discord
 yay-needed xmonad-log # read xmonad status from dbus, for polybar
 yay-needed xmonad-dbus-git
+yay-needed aws-session-manager-plugin
