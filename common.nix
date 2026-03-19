@@ -103,15 +103,15 @@ with myLib;
           + "/tokyonight/tokyonight.rasi"
         )
       );
-      
-      ".config/dunst/dunstrc".source = 
-          pkgs.fetchFromGitHub {
-            owner = "Yutsuten";
-            repo = "linux-config";
-            rev = "91628d16ead439e31f82f5c917282e95f43d8789";
-            sha256 = "0p2pg0xd5fm8xm6xgs73na544vmbcgagz3adzcyxcnpbgh71j6y7";
-          }
-          + "/desktop/dunstrc.conf";
+
+      ".config/dunst/dunstrc".source =
+        pkgs.fetchFromGitHub {
+          owner = "Yutsuten";
+          repo = "linux-config";
+          rev = "91628d16ead439e31f82f5c917282e95f43d8789";
+          sha256 = "0p2pg0xd5fm8xm6xgs73na544vmbcgagz3adzcyxcnpbgh71j6y7";
+        }
+        + "/desktop/dunstrc.conf";
     }
     (autostart {
       "discord" = "/usr/bin/discord";
@@ -126,7 +126,7 @@ with myLib;
   ];
 
   # kinda imperative, but it works for now
-  home.activation.cloneGitRepoTray = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.cloneGitRepoTray = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "$HOME/.bin/git-repo-tray/.git" ]; then
       GIT_SSH_COMMAND="${pkgs.openssh}/bin/ssh" ${pkgs.git}/bin/git clone git@git.tsa.fredh.space:fred/git-repo-tray.git "$HOME/.bin/git-repo-tray"
     fi
