@@ -227,6 +227,9 @@ with myLib;
       xc = "xclip -sel clip";
       # git
       gitl = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
+      # requires inotifywait
+      # assumes the terminal bar in wezterzm (tput lines - 1)
+      diffw = "clear; git --no-pager difft-diff 2>/dev/null | head -n $(($(tput lines) - 1)); while inotifywait -qe moved_to,close_write --include 'index' .git 2>/dev/null; do clear; git --no-pager difft-diff 2>/dev/null | head -n $(tput lines); done";
     };
   };
 

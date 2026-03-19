@@ -27,6 +27,7 @@ yay-needed bat
 yay-needed gitg
 yay-needed git-delta
 yay-needed gitui
+yay-needed inotify-tools
 # desktop
 yay-needed xmonad
 yay-needed xmonad-contrib

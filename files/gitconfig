@@ -13,6 +13,7 @@
   last-hash-short = rev-parse --short HEAD
   sup = submodule update --init --recursive
   bd = "!zsh ~/.bin/git-branch-delete-fzf.zsh"
+  difft-diff = "!GIT_EXTERNAL_DIFF='difft --color=always' git diff"
 
 # https://github.com/dandavison/delta
 [core]
