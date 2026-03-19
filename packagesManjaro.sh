@@ -69,6 +69,7 @@ yay-needed nvm
 yay-needed obsidian
 yay-needed syncthing
 yay-needed base-devel
+yay-needed screenkey
 #
 # AUR packages
 #
