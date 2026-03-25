@@ -34,7 +34,7 @@
   tool = meld
   conflictstyle = zdiff3
 [branch]
-  autoSetupMerge = always
+  autoSetupMerge = true
 [pull]
   ff = only
 [diff]
