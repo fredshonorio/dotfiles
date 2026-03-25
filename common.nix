@@ -36,6 +36,7 @@ with myLib;
     jq
     just
     difftastic
+    gitu
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -67,6 +68,7 @@ with myLib;
       ".bin/git-branch-delete-fzf.zsh".source = files/bin/git-branch-delete-fzf.zsh;
       ".bin/flx".source = files/bin/flx;
       ".config/flx/config.toml".source = files/flx/config.toml;
+      ".config/gitu/config.toml".source = files/gitu/config.toml;
 
       # navi
       # https://github.com/denisidoro/navi/blob/master/docs/cheatsheet_syntax.md
