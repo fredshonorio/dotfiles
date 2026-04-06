@@ -227,6 +227,8 @@ with myLib;
       tsl = "terraform state list | grep";
       ti = "terraform import";
       xc = "xclip -sel clip";
+      c = "claude";
+      cc = "cd ~/claude && claude";
       # git
       gitl = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
       # requires inotifywait
