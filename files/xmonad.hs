@@ -14,6 +14,7 @@ import XMonad.Hooks.DynamicLog     (dynamicLogWithPP, PP(..), def, wrap)
 import XMonad.Hooks.ManageDocks    (avoidStruts, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers  (doFullFloat, isFullscreen)
 import XMonad.Hooks.Place          (fixed, placeHook)
+import XMonad.Hooks.InsertPosition (insertPosition, Position(..), Focus(..))
 import XMonad.Layout               (Full(..), Tall(..))
 import XMonad.Layout.Grid          (Grid(..))
 import XMonad.Layout.ComboP        (SwapWindow(..), Property(..), combineTwoP)
@@ -91,6 +92,7 @@ manageHooks = composeAll
   [ isFullscreen                     --> doFullFloat -- without this vlc doesn't correctly come out of full screen
   , wmName    =? "sakura_float"      --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   , wmName    =? "Krita - Edit Text" --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
+  , className =? "wezterm-after"     --> insertPosition Below Newer
   , appName   =? "dunst"             --> doIgnore
   , appName   =? "copyq"             --> placeHook (fixed (0.5, 0.5)) <+> doFullFloat
   ]
