@@ -157,22 +157,23 @@ with myLib;
     enable = true;
     defaultKeymap = "emacs";
 
-    initExtraFirst = ''
-      export NVM_LAZY_LOAD=true
-    '';
-
     # escape ${ with ''${
-    initExtra = ''
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-      source ~/.p10k.zsh
-      eval "$(jenv init -)"
-      # this should run once after jenv is installed, jenv enable-plugin export &> /dev/null
-      bindkey "^[[H"  beginning-of-line # home key
-      bindkey "^[[F"  end-of-line       # end key
-      bindkey "^[[3~" delete-char       # delete key
-    '';
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        export NVM_LAZY_LOAD=true
+      '')
+      ''
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
+        source ~/.p10k.zsh
+        eval "$(jenv init -)"
+        # this should run once after jenv is installed, jenv enable-plugin export &> /dev/null
+        bindkey "^[[H"  beginning-of-line # home key
+        bindkey "^[[F"  end-of-line       # end key
+        bindkey "^[[3~" delete-char       # delete key
+      ''
+    ];
 
     antidote = {
       enable = true;
