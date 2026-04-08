@@ -191,7 +191,7 @@ with myLib;
     };
 
     shellAliases = {
-      up = "home-manager -f $HOME/.config/home-manager/host-$HOST.nix switch";
+      up = "home-manager switch";
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
