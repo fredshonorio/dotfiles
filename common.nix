@@ -69,6 +69,7 @@ with myLib;
       ".bin/flx".source = files/bin/flx;
       ".config/flx/config.toml".source = files/flx/config.toml;
       ".config/gitu/config.toml".source = files/gitu/config.toml;
+      ".claude/statusline-command.sh".source = files/claude-statusline.sh;
 
       # navi
       # https://github.com/denisidoro/navi/blob/master/docs/cheatsheet_syntax.md
