@@ -2,21 +2,21 @@
 
 set -ex
 
-#
-# This should be run only the first time zsh and docker are set up
-#
-
+# this script should be idempotent
 
 # sudo pacman -Syu
 sudo pacman --needed -S yay
 
-# TODO install nix, use the standard installer, not pacman, make idempotent
-# ln -s ~/.dotfiles ~/.config/home-manager TODO make idempotent
+ln -sfn ~/.dotfiles ~/.config/home-manager
+ln -sf "host-$(hostname).nix" ~/.dotfiles/home.nix # home.nix is gitignored, it's different for each host
+
 NIXPKGS_VERSION="25.11"
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-${NIXPKGS_VERSION}.tar.gz home-manager
 nix-channel --update
 
-nix-shell '<home-manager>' -A install
+if ! command -v home-manager > /dev/null 2>&1; then
+  nix-shell '<home-manager>' -A install
+fi
 
 # Change shell 
 sudo chsh -s $(which zsh) $USER
