@@ -12,7 +12,8 @@ sudo pacman --needed -S yay
 
 # TODO install nix, use the standard installer, not pacman, make idempotent
 # ln -s ~/.dotfiles ~/.config/home-manager TODO make idempotent
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+NIXPKGS_VERSION="25.11"
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-${NIXPKGS_VERSION}.tar.gz home-manager
 nix-channel --update
 
 nix-shell '<home-manager>' -A install
