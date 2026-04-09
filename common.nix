@@ -131,6 +131,15 @@ with myLib;
     })
   ];
 
+  # display managers and chsh require the login shell to be listed in /etc/shells
+  # ~/.nix-profile/bin/zsh is user-specific and not  added there automatically, so we add it
+  # without this changing the shell to the nix zsh (e.g. via init.sh) will cause the display manager to reject the login
+  home.activation.addZshToShells = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if ! grep -qF "$HOME/.nix-profile/bin/zsh" /etc/shells; then
+      echo "$HOME/.nix-profile/bin/zsh" | /usr/bin/sudo tee -a /etc/shells
+    fi
+  '';
+
   # kinda imperative, but it works for now
   home.activation.cloneGitRepoTray = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "$HOME/.bin/git-repo-tray/.git" ]; then
