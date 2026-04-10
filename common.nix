@@ -69,6 +69,9 @@ with myLib;
       ".bin/flx".source = files/bin/flx;
       ".config/flx/config.toml".source = files/flx/config.toml;
       ".config/gitu/config.toml".source = files/gitu/config.toml;
+      ".config/mpv/input.conf".source = files/mpv/input.conf;
+      ".config/mpv/scripts/autoload.lua".source = files/mpv/scripts/autoload.lua;
+      ".config/mpv/scripts/delete-file.lua".source = files/mpv/scripts/delete-file.lua;
       ".claude/statusline-command.sh" = {
         source = files/claude-statusline.sh;
         executable = true;
