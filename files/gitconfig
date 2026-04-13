@@ -19,6 +19,7 @@
 [core]
   editor = micro
   pager = delta
+  hooksPath = /dev/null # do not run any hooks unless explicitly opted in
 [delta]
   navigate = true  # use n and N to move between diff sections
   side-by-side = true
