@@ -179,6 +179,9 @@ with myLib;
         export NVM_LAZY_LOAD=true
       '')
       ''
+        if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+      ''
+      ''
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
