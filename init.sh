@@ -25,4 +25,7 @@ if [ "$SHELL" != "$(which zsh)" ]; then
   chsh -s $(which zsh) $USER
 fi
 
+# remove XFCE's Print shortcut so xmonad can handle it
+xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/Print' -r 2>/dev/null || true
+
 echo "You should close this terminal and open a new one now. Then run ./update.sh."
