@@ -8,6 +8,9 @@
 }:
 
 let
+  habitsDat = pkgs.runCommand "habits-fortune-dat" { } ''
+    ${pkgs.fortune}/bin/strfile ${./files/habits} $out
+  '';
 in
 with myLib;
 {
@@ -69,6 +72,8 @@ with myLib;
       ".bin/flx".source = files/bin/flx;
       ".config/flx/config.toml".source = files/flx/config.toml;
       ".config/gitu/config.toml".source = files/gitu/config.toml;
+      ".local/habits".source = files/habits;
+      ".local/habits.dat".source = habitsDat;
       ".config/mpv/input.conf".source = files/mpv/input.conf;
       ".config/mpv/scripts/autoload.lua".source = files/mpv/scripts/autoload.lua;
       ".config/mpv/scripts/delete-file.lua".source = files/mpv/scripts/delete-file.lua;
@@ -188,6 +193,7 @@ with myLib;
         source ~/.p10k.zsh
         eval "$(jenv init -)"
         # this should run once after jenv is installed, jenv enable-plugin export &> /dev/null
+        [[ -f "$HOME/.local/habits.dat" ]] && ${pkgs.fortune}/bin/fortune "$HOME/.local/habits" | ${pkgs.gum}/bin/gum format
         bindkey "^[[H"  beginning-of-line # home key
         bindkey "^[[F"  end-of-line       # end key
         bindkey "^[[3~" delete-char       # delete key

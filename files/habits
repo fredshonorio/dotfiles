@@ -1,0 +1,11 @@
+xmonad: `mod+m` opens terminal  (not mod+t)
+%
+xmonad: `mod+.`, `mod+Ctrl+e` opens Thunar  (not mod+e)
+%
+xmonad: `mod+x`, `mod+Backspace` kills window  (not mod+w)
+%
+xmonad: `mod+Ctrl+q` to logout  (not mod+Shift+q)
+%
+xmonad: `mod+Ctrl+t` to tile/sink window  (not mod+Shift+t)
+%
+xmonad: `mod+Ctrl+r` to restart XMonad  (not mod+q)
