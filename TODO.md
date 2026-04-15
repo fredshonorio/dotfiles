@@ -1,3 +1,7 @@
+integrate aconfmgr with home-manager setup
+
+---
+
 https://github.com/99designs/aws-vault
 
 aws-vault
