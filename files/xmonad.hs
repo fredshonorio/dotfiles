@@ -2,7 +2,7 @@ import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className, appName
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, modMask, mod4Mask, noModMask
-                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v, xK_d
+                                   , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v, xK_d, xK_comma, xK_period
                                    , screenWorkspace, whenJust, windows
                                    )
 import XMonad.Actions.SpawnOn      (spawnHere)
@@ -54,7 +54,11 @@ main = do
   xmonad $ ewmh $ desktopConfig
     { terminal           = myTerminal
     , modMask            = mod4Mask
-    , keys               = myKeys <+> keys desktopConfig
+    , keys               = \conf -> (myKeys <+> keys desktopConfig) conf
+                             `M.difference` M.fromList  -- unbind desktopConfig defaults
+                               [ ((modMask conf, xK_comma),  ()) -- IncMasterN 1
+                               , ((modMask conf, xK_period), ()) -- IncMasterN (-1)
+                               ]
     , borderWidth        = 4
     , normalBorderColor  = mBackground
     , focusedBorderColor = mRed
