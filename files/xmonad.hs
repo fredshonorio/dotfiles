@@ -1,8 +1,10 @@
 import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , spawn, xmonad, composeAll, doFloat, stringProperty, doIgnore, className, appName
                                    , (.|.), (<+>), (|||), (-->), (=?)
-                                   , shiftMask, modMask, mod4Mask, noModMask
+                                   , shiftMask, controlMask, modMask, mod4Mask, noModMask
                                    , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v, xK_d, xK_comma, xK_period
+                                   , xK_y, xK_u, xK_i, xK_o, xK_r, xK_m, xK_x, xK_BackSpace
+                                   , workspaces
                                    , screenWorkspace, whenJust, windows
                                    )
 import XMonad.Actions.SpawnOn      (spawnHere)
@@ -56,8 +58,7 @@ main = do
     , modMask            = mod4Mask
     , keys               = \conf -> (myKeys <+> keys desktopConfig) conf
                              `M.difference` M.fromList  -- unbind desktopConfig defaults
-                               [ ((modMask conf, xK_comma),  ()) -- IncMasterN 1
-                               , ((modMask conf, xK_period), ()) -- IncMasterN (-1)
+                               [ ((modMask conf, xK_comma), ()) -- IncMasterN 1
                                ]
     , borderWidth        = 4
     , normalBorderColor  = mBackground
@@ -118,19 +119,27 @@ layouts = avoidStruts $ toggleLayouts full rest
 myKeys (XConfig {modMask = mod}) = M.fromList $
     [ ((mod,               xK_p), spawn "rofi -show run -modi run")
     , ((mod .|. shiftMask, xK_p), spawn "xfce4-appfinder")
-    , ((mod,               xK_e), spawn "thunar")
     -- , ((mod,               xK_c), gotoMenuConfig rofiCfg)
     , ((mod,               xK_c), spawn "rofi -show window -modi window")
-    , ((mod .|. shiftMask, xK_q), spawn "xfce4-session-logout")
-    , ((mod .|. shiftMask, xK_t), withFocused $ windows . W.sink)
-    , ((mod,               xK_t), spawn myTerminal)
-    , ((mod,               xK_w), kill)
+    , ((mod .|. controlMask,  xK_q), spawn "xfce4-session-logout")      -- was mod+shift+q
+    , ((mod .|. controlMask,  xK_t), withFocused $ windows . W.sink)    -- was mod+shift+t
+    , ((mod .|. controlMask,  xK_r), spawn "xmonad --recompile && xmonad --restart") -- was mod+q (desktopConfig)
+    , ((mod,               xK_m), spawn myTerminal)                   -- was mod+t
+    , ((mod,               xK_period), spawn "thunar")                -- was mod+e
+    , ((mod .|. controlMask,  xK_e), spawn "thunar")
+    , ((mod,               xK_x), kill)                               -- was mod+w
+    , ((mod,               xK_BackSpace), kill)
     -- , ((mod .|. shiftMask, xK_s), sendMessage $ SwapWindow)   -- only usable in combineTwoP (streams) layout
     , ((mod              , xK_f), sendMessage $ ToggleLayout) -- toggle fullscreen
     , ((mod              , xK_b), sendMessage $ ToggleStruts) -- toggle struts
     , ((noModMask        , xK_Print), spawn "xfce4-screenshooter --fullscreen")
     , ((mod              , xK_v), nextMatch Forward isOnAnyVisibleWS)
     , ((mod .|. shiftMask, xK_v), nextMatch Backward isOnAnyVisibleWS)
+    ] ++
+    -- top row q-o: switch to / move window to workspaces 1-9
+    [ ((mask .|. mod, key), windows $ action ws)
+      | (key, ws)          <- zip [xK_q, xK_w, xK_e, xK_r, xK_t, xK_y, xK_u, xK_i, xK_o] (workspaces desktopConfig)
+      , (action, mask)     <- [(W.greedyView, 0), (W.shift, shiftMask)]
     ] ++
     [((mask .|. mod, key), screenWorkspace sc >>= flip whenJust (windows . action))
       | (key, sc) <- zip [xK_a, xK_s, xK_d] [0, 2, 1] -- screen order
