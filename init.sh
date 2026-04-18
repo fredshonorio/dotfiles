@@ -18,6 +18,10 @@ if ! groups $USER | grep -q docker; then
   sudo usermod -aG docker $USER
 fi
 
+if ! command -v nix > /dev/null 2>&1; then
+  sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+fi
+
 if ! command -v home-manager > /dev/null 2>&1; then
   nix run home-manager/master -- init --switch
 fi
