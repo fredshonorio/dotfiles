@@ -18,16 +18,11 @@ if ! groups $USER | grep -q docker; then
   sudo usermod -aG docker $USER
 fi
 
-ln -sfn ~/.dotfiles ~/.config/home-manager
-ln -sf "host-$(hostname).nix" ~/.dotfiles/home.nix # home.nix is gitignored, it's different for each host
-
-NIXPKGS_VERSION="25.11"
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-${NIXPKGS_VERSION}.tar.gz home-manager
-nix-channel --update
-
 if ! command -v home-manager > /dev/null 2>&1; then
-  nix-shell '<home-manager>' -A install
+  nix run home-manager/master -- init --switch
 fi
+
+home-manager switch --flake ~/.dotfiles#fred@$(hostname)
 
 # Change shell 
 if [ "$SHELL" != "$(which zsh)" ]; then

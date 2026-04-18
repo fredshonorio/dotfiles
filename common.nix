@@ -3,6 +3,7 @@
   pkgs,
   lib,
   myLib,
+  cellar,
   ...
 }:
 
@@ -10,7 +11,6 @@ let
   habitsDat = pkgs.runCommand "habits-fortune-dat" { } ''
     ${pkgs.fortune}/bin/strfile ${./files/habits} $out
   '';
-  cellar = import ./cellar.nix { inherit pkgs; };
 in
 with myLib;
 {
@@ -44,7 +44,7 @@ with myLib;
     just
     difftastic
     gitu
-    cellar
+    cellar.packages.${pkgs.system}.default
     hexxy
     serie # git commit graph
     glow # markdown on the terminal
@@ -229,7 +229,7 @@ with myLib;
     };
 
     shellAliases = {
-      up = "home-manager switch";
+      up = "home-manager switch --flake ~/.dotfiles#fred@$(hostname)";
       ".." = "cd ./..";
       t = "(wezterm start --cwd $PWD) &> /dev/null &";
       ap = ''readlink -e "$1"'';
