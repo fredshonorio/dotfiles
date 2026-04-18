@@ -1,6 +1,0 @@
-[Unit]
-Description=Disable audio powersave, which causes a buzz when using headphones and no sound is playing
-[Service]
-ExecStart=/usr/local/sbin/disable-audio-powersave.sh
-[Install]
-WantedBy=multi-user.target
