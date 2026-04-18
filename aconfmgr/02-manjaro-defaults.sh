@@ -224,3 +224,4 @@ IgnorePackage device-mapper
 IgnorePackage catfish
 IgnorePackage cpupower
 IgnorePackage cronie
+IgnorePackage zlib-ng

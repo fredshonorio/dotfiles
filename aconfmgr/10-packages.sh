@@ -166,3 +166,4 @@ AddPackage opencode
 AddPackage rsync
 AddPackage lmstudio-bin
 AddPackage manjaro-downgrade
+AddPackage gnucash
