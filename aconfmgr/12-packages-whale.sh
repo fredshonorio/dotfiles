@@ -12,6 +12,7 @@ AddPackage ladspa
 AddPackage lsp-plugins
 AddPackage --foreign libdeep_filter_ladspa-bin
 
+AddPackage android-tools
 AddPackage amd-ucode
 AddPackage --foreign deadbranch-bin
 AddPackage --foreign google-chrome-beta
