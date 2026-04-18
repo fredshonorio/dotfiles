@@ -9,6 +9,15 @@ if ! command -v yay > /dev/null 2>&1; then
   sudo pacman -S yay
 fi
 
+if ! command -v aconfmgr > /dev/null 2>&1; then
+  yay -S aconfmgr-git
+fi
+
+# add user to docker group (one-time)
+if ! groups $USER | grep -q docker; then
+  sudo usermod -aG docker $USER
+fi
+
 ln -sfn ~/.dotfiles ~/.config/home-manager
 ln -sf "host-$(hostname).nix" ~/.dotfiles/home.nix # home.nix is gitignored, it's different for each host
 

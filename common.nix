@@ -29,19 +29,20 @@ with myLib;
     # procs
     # tealdeer
     lsd
-    # coursier
     micro
     # metals
     securefs
     git-subrepo
     aws-vault
     kondo
-    # btop -- the nixpkgs version doesn't seem to have gpu support, using the arch version instead
     jq
     just
     difftastic
     gitu
     cellar
+    hexxy
+    serie # git commit graph
+    glow # markdown on the terminal
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -119,6 +120,11 @@ with myLib;
           + "/tokyonight/tokyonight.rasi"
         )
       );
+
+      # mask xfce4-notifyd so dunst handles notifications instead
+      ".config/systemd/user/xfce4-notifyd.service" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/dev/null";
+      };
 
       ".config/dunst/dunstrc".source =
         pkgs.fetchFromGitHub {
