@@ -7,6 +7,8 @@ AddPackage ttf-inconsolata
 AddPackage ttf-droid
 AddPackage ttf-jetbrains-mono-nerd
 AddPackage ttf-nerd-fonts-symbols
+AddPackage ttf-nerd-fonts-symbols-mono
+AddPackage otf-monaspace-nerdfonts
 AddPackage papirus-icon-theme
 AddPackage noto-fonts-cjk
 AddPackage noto-fonts-emoji
@@ -27,7 +29,6 @@ AddPackage inotify-tools
 # desktop
 AddPackage docker
 AddPackage docker-buildx
-AddPackage easyeffects
 AddPackage xmonad
 AddPackage xmonad-contrib
 AddPackage feh
@@ -49,7 +50,6 @@ AddPackage signal-desktop
 # dev misc
 AddPackage ansible
 AddPackage python-argcomplete # shell completions for ansible
-AddPackage aws-cli
 AddPackage clang
 AddPackage cmake
 AddPackage terraform
@@ -57,9 +57,8 @@ AddPackage terragrunt
 AddPackage make
 AddPackage meld
 AddPackage docker-compose
-AddPackage nvidia-container-toolkit
 AddPackage bind
-# AddPackage aws-cli-v2
+AddPackage aws-cli-v2
 
 # dev python
 AddPackage python-pipenv
@@ -76,6 +75,7 @@ AddPackage npm
 # xorg tools
 AddPackage xorg-xdpyinfo # resolution detection for inxi
 AddPackage xorg-xev
+AddPackage xorg-xrandr
 
 # misc
 AddPackage obsidian
@@ -94,7 +94,10 @@ AddPackage smplayer
 AddPackage thunderbird
 AddPackage vokoscreen
 AddPackage vlc
+AddPackage vlc-plugin-ffmpeg
+AddPackage vlc-plugin-gstreamer
 AddPackage vlc-plugins-all
+AddPackage vlc-plugins-extra
 
 # system
 AddPackage android-tools
@@ -102,19 +105,14 @@ AddPackage blueman
 AddPackage git-crypt
 AddPackage github-cli
 AddPackage gnome-keyring
+AddPackage gnome-disk-utility
 AddPackage gparted
 AddPackage graphviz
 AddPackage gthumb
-AddPackage htpasswd
 AddPackage jdk11-openjdk
-AddPackage ladspa
-AddPackage libdeep_filter_ladspa-bin
 AddPackage libfido2
-AddPackage lsp-plugins
 AddPackage nemo
 AddPackage nemo-fileroller
-AddPackage nvidia-settings
-AddPackage nvidia-utils
 AddPackage openssh
 AddPackage tailscale
 AddPackage pavucontrol
@@ -136,10 +134,8 @@ AddPackage --foreign claude-code
 AddPackage --foreign coursier-bin
 AddPackage --foreign devbox-bin
 AddPackage --foreign feishin-bin
-AddPackage --foreign google-chrome-beta
 AddPackage --foreign jellyfin-desktop
 AddPackage --foreign jetbrains-toolbox
-AddPackage --foreign jdk24-graalvm-ce-bin
 AddPackage --foreign lunatask
 
 
@@ -156,14 +152,10 @@ AddPackage worktrunk
 AddPackage baobab
 AddPackage yubikey-manager
 AddPackage jdk17-openjdk
-AddPackage deadbranch-bin
 AddPackage dbeaver
-AddPackage vdhcoapp-bin
 AddPackage tokei
 AddPackage xclicker
 AddPackage less
-AddPackage opencode
 AddPackage rsync
-AddPackage lmstudio-bin
 AddPackage manjaro-downgrade
 AddPackage gnucash
