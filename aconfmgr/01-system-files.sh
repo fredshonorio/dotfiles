@@ -12,12 +12,16 @@ etc_whitelist=(
     'X11/xinit/xinitrc.d/99-disable-caps-lock.sh'
     'systemd/system/multi-user.target.wants/docker.service'
     'systemd/system/multi-user.target.wants/earlyoom.service'
+    'nix/nix.conf'
 )
 
 IgnorePathsExcept /etc "${etc_whitelist[@]}"
 
 # docker service override
 CopyFile /etc/systemd/system/docker.service.d/override.conf
+
+# nix configuration
+CopyFile /etc/nix/nix.conf
 
 # earlyoom config
 CopyFile /etc/default/earlyoom

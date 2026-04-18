@@ -3,7 +3,6 @@
   pkgs,
   lib,
   myLib,
-  polybar-hwmonPath ? null,
   ...
 }:
 
@@ -15,6 +14,12 @@ let
 in
 with myLib;
 {
+  options.polybar-hwmonPath = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
+  };
+
+  config = {
   home.username = "fred";
   home.homeDirectory = "/home/fred";
   home.stateVersion = "23.05";
@@ -93,7 +98,7 @@ with myLib;
       ".config/polybar/config.ini".text =
         lib.replaceStrings
           [ "thermal-zone = 0" ]
-          [ (if polybar-hwmonPath != null then "hwmon-path = ${polybar-hwmonPath}" else "thermal-zone = 0") ]
+          [ (if config.polybar-hwmonPath != null then "hwmon-path = ${config.polybar-hwmonPath}" else "thermal-zone = 0") ]
           (builtins.readFile files/polybar/config.ini);
       ".bin/polybar.sh".source = files/polybar/polybar.sh;
       ".bin/dnd.sh".source = files/polybar/dnd.sh;
@@ -291,4 +296,5 @@ with myLib;
       paths = [ "~/.bin/cheats" ];
     };
   };
+  }; # config
 }
