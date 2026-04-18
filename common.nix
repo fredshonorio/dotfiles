@@ -11,6 +11,7 @@ let
   habitsDat = pkgs.runCommand "habits-fortune-dat" { } ''
     ${pkgs.fortune}/bin/strfile ${./files/habits} $out
   '';
+  cellar = import ./cellar.nix { inherit pkgs; };
 in
 with myLib;
 {
@@ -40,6 +41,7 @@ with myLib;
     just
     difftastic
     gitu
+    cellar
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
