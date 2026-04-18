@@ -13,9 +13,6 @@ AddPackage tlp
 AddPackage xf86-input-synaptics
 AddPackage xfce4-volumed-pulse
 
-# AUR
 AddPackage --foreign imagewriter
-
-# AUR
 AddPackage --foreign jdownloader2
 AddPackage --foreign losslesscut-bin

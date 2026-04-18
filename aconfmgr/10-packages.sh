@@ -19,16 +19,16 @@ AddPackage zsh
 AddPackage tree
 AddPackage the_silver_searcher
 AddPackage bat
+AddPackage less
 
 # git
 AddPackage gitg
 AddPackage git-delta
 AddPackage gitui
 AddPackage inotify-tools
+AddPackage worktrunk
 
 # desktop
-AddPackage docker
-AddPackage docker-buildx
 AddPackage xmonad
 AddPackage xmonad-contrib
 AddPackage feh
@@ -42,10 +42,13 @@ AddPackage keepassxc
 AddPackage workrave
 AddPackage systembus-notify
 AddPackage earlyoom
+AddPackage firefox
+AddPackage xclicker
 
 # comms
 AddPackage discord
 AddPackage signal-desktop
+AddPackage thunderbird
 
 # dev misc
 AddPackage ansible
@@ -59,10 +62,23 @@ AddPackage meld
 AddPackage docker-compose
 AddPackage bind
 AddPackage aws-cli-v2
+AddPackage dbeaver
+AddPackage gnuplot
+AddPackage incus
+AddPackage tokei
+AddPackage docker
+AddPackage docker-buildx
+AddPackage graphviz
 
 # dev python
 AddPackage python-pipenv
 AddPackage pyenv
+AddPackage uv
+
+# dev java
+AddPackage jdk11-openjdk
+AddPackage jdk17-openjdk
+AddPackage maven
 
 # dev scala
 AddPackage sbt
@@ -82,16 +98,18 @@ AddPackage obsidian
 AddPackage syncthing
 AddPackage base-devel
 AddPackage screenkey
+AddPackage libreoffice-fresh
+AddPackage gnucash
 
 # media
 AddPackage ffmpeg
+AddPackage mpv
 AddPackage gst-libav
 AddPackage gst-plugins-bad
 AddPackage gst-plugins-base
 AddPackage gst-plugins-good
 AddPackage gst-plugins-ugly
 AddPackage smplayer
-AddPackage thunderbird
 AddPackage vokoscreen
 AddPackage vlc
 AddPackage vlc-plugin-ffmpeg
@@ -107,9 +125,7 @@ AddPackage github-cli
 AddPackage gnome-keyring
 AddPackage gnome-disk-utility
 AddPackage gparted
-AddPackage graphviz
 AddPackage gthumb
-AddPackage jdk11-openjdk
 AddPackage libfido2
 AddPackage nemo
 AddPackage nemo-fileroller
@@ -121,14 +137,20 @@ AddPackage udiskie
 AddPackage unrar
 AddPackage usbutils
 AddPackage tealdeer
+AddPackage 7zip
+AddPackage btop
+AddPackage baobab
+AddPackage yubikey-manager
+AddPackage rsync
+AddPackage manjaro-downgrade
 
 # AUR
 AddPackage --foreign pacman-cleanup-hook
 AddPackage --foreign xmonad-recompile-pacman-hook-git
-AddPackage --foreign visual-studio-code-bin
-AddPackage --foreign ttf-symbola
 AddPackage --foreign xmonad-log
 AddPackage --foreign xmonad-dbus-git
+AddPackage --foreign visual-studio-code-bin
+AddPackage --foreign ttf-symbola
 AddPackage --foreign aws-session-manager-plugin
 AddPackage --foreign claude-code
 AddPackage --foreign coursier-bin
@@ -137,25 +159,3 @@ AddPackage --foreign feishin-bin
 AddPackage --foreign jellyfin-desktop
 AddPackage --foreign jetbrains-toolbox
 AddPackage --foreign lunatask
-
-
-AddPackage libreoffice-fresh
-AddPackage firefox
-AddPackage mpv
-AddPackage incus
-AddPackage gnuplot
-AddPackage 7zip
-AddPackage btop
-AddPackage maven
-AddPackage uv
-AddPackage worktrunk
-AddPackage baobab
-AddPackage yubikey-manager
-AddPackage jdk17-openjdk
-AddPackage dbeaver
-AddPackage tokei
-AddPackage xclicker
-AddPackage less
-AddPackage rsync
-AddPackage manjaro-downgrade
-AddPackage gnucash
