@@ -118,6 +118,7 @@ AddPackage vlc-plugins-all
 AddPackage vlc-plugins-extra
 
 # system
+AddPackage intel-ucode
 AddPackage android-tools
 AddPackage blueman
 AddPackage git-crypt
