@@ -24,4 +24,5 @@ lib.mkMerge [
     home.file.".config/git-repo-tray/config.toml".source = ./files/git-repo-tray/config.toml;
   }
   extra.autostart.thunderbird
+  extra.autostart.workrave
 ]
