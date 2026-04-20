@@ -3,7 +3,7 @@ import XMonad                      (XConfig(..), X(..), Window, WindowSpace
                                    , (.|.), (<+>), (|||), (-->), (=?)
                                    , shiftMask, controlMask, modMask, mod4Mask, noModMask
                                    , xK_p, xK_c, xK_q, xK_b, xK_s, xK_f, xK_Print, xK_t, xK_e, xK_a, xK_s, xK_w, xK_v, xK_d, xK_comma, xK_period
-                                   , xK_y, xK_u, xK_i, xK_o, xK_r, xK_m, xK_x, xK_BackSpace
+                                   , xK_y, xK_u, xK_i, xK_o, xK_r, xK_m, xK_x, xK_BackSpace, xK_z
                                    , workspaces
                                    , screenWorkspace, whenJust, windows
                                    )
@@ -126,6 +126,7 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     , ((mod .|. controlMask,  xK_r), spawn "xmonad --recompile && xmonad --restart") -- was mod+q (desktopConfig)
     , ((mod,               xK_m), spawn myTerminal)                   -- was mod+t
     , ((mod,               xK_period), spawn "thunar")                -- was mod+e
+    , ((mod,               xK_z), spawn "thunar")
     , ((mod .|. controlMask,  xK_e), spawn "thunar")
     , ((mod,               xK_x), kill)                               -- was mod+w
     , ((mod,               xK_BackSpace), kill)
