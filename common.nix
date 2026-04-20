@@ -48,6 +48,7 @@ with myLib;
     hexxy
     serie # git commit graph
     glow # markdown on the terminal
+    (import ./pkgs/filessh.nix { inherit pkgs; })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
