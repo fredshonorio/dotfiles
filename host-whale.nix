@@ -7,7 +7,14 @@
 }:
 
 let
-  extra = import ./extra.nix { inherit config pkgs lib myLib; };
+  extra = import ./extra.nix {
+    inherit
+      config
+      pkgs
+      lib
+      myLib
+      ;
+  };
 in
 lib.mkMerge [
   {
