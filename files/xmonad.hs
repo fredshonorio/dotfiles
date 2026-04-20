@@ -132,7 +132,8 @@ myKeys (XConfig {modMask = mod}) = M.fromList $
     -- , ((mod .|. shiftMask, xK_s), sendMessage $ SwapWindow)   -- only usable in combineTwoP (streams) layout
     , ((mod              , xK_f), sendMessage $ ToggleLayout) -- toggle fullscreen
     , ((mod              , xK_b), sendMessage $ ToggleStruts) -- toggle struts
-    , ((noModMask        , xK_Print), spawn "flameshot gui")
+    , ((noModMask        , xK_Print), spawn "xfce4-screenshooter --region")
+    , ((mod              , xK_Print), spawn "xfce4-screenshooter --fullscreen")
     , ((mod              , xK_v), nextMatch Forward isOnAnyVisibleWS)
     , ((mod .|. shiftMask, xK_v), nextMatch Backward isOnAnyVisibleWS)
     ] ++
