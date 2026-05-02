@@ -10,6 +10,7 @@ used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 five_hr_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 seven_day_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 five_hr_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
+seven_day_resets=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 
 # Shorten home directory to ~
 if [ -n "$cwd" ]; then
@@ -60,6 +61,10 @@ if [ -n "$five_hr_pct" ] || [ -n "$seven_day_pct" ]; then
   if [ -n "$five_hr_resets" ]; then
     resets_fmt=$(date -d "@$five_hr_resets" '+%H:%M' 2>/dev/null || echo "$five_hr_resets")
     parts="${parts:+$parts }↺${resets_fmt}"
+  fi
+  if [ -n "$seven_day_resets" ]; then
+    seven_day_date=$(date -d "@$seven_day_resets" '+%a %d' 2>/dev/null || echo "$seven_day_resets")
+    parts="${parts:+$parts }↺7d:${seven_day_date}"
   fi
   rate_info=" [$parts]"
 fi
