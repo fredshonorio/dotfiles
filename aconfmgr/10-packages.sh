@@ -44,6 +44,7 @@ AddPackage systembus-notify
 AddPackage earlyoom
 AddPackage firefox
 AddPackage xclicker
+AddPackage bluez-utils
 
 # comms
 AddPackage discord
