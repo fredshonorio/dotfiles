@@ -15,3 +15,6 @@ see where i'm using iosevka font, the manjaro package is really annoying, docume
        │ File: /home/fred/.config/nixpkgs/config.nix
 ───────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
    1   │ { allowUnfree = true; }
+
+
+satty
