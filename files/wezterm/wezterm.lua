@@ -30,6 +30,33 @@ local config = {
         key = 'Enter',
         mods = 'SHIFT',
         action = wezterm.action.SendString('\x1b[13;2u')
+    }},
+    mouse_bindings = {{
+        event = {
+            Down = {
+                streak = 1,
+                button = {
+                    WheelUp = 1
+                }
+            }
+        },
+        mods = 'CTRL',
+        action = wezterm.action.SendKey {
+            key = 'PageUp'
+        }
+    }, {
+        event = {
+            Down = {
+                streak = 1,
+                button = {
+                    WheelDown = 1
+                }
+            }
+        },
+        mods = 'CTRL',
+        action = wezterm.action.SendKey {
+            key = 'PageDown'
+        }
     }}
 }
 
