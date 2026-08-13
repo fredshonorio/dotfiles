@@ -181,6 +181,7 @@ with myLib;
   # remember this is only set when xorg starts
   home.sessionPath = [
     "$HOME/.bin"
+    "$HOME/.local/bin"
     "$HOME/.cargo/bin"
     "$HOME/.local/share/JetBrains/Toolbox/scripts/"
     "$HOME/.local/share/coursier/bin"
