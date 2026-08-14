@@ -57,6 +57,24 @@ local config = {
         action = wezterm.action.SendKey {
             key = 'PageDown'
         }
+    }, {
+        event = {
+            Up = {
+                streak = 1,
+                button = 'Left'
+            }
+        },
+        mods = 'NONE',
+        action = wezterm.action.CompleteSelection('ClipboardAndPrimarySelection')
+    }, {
+        event = {
+            Up = {
+                streak = 1,
+                button = 'Left'
+            }
+        },
+        mods = 'SHIFT',
+        action = wezterm.action.CompleteSelection('ClipboardAndPrimarySelection')
     }}
 }
 
