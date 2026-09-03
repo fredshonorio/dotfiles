@@ -48,6 +48,7 @@ with myLib;
     hexxy
     serie # git commit graph
     glow # markdown on the terminal
+    mysql-shell # mysqlsh 8.4 - upgrade checker + parallel dump/load
     (import ./pkgs/filessh.nix { inherit pkgs; })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
