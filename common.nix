@@ -4,6 +4,7 @@
   lib,
   myLib,
   cellar,
+  omp,
   ...
 }:
 
@@ -45,6 +46,7 @@ with myLib;
     difftastic
     gitu
     cellar.packages.${pkgs.system}.default
+    omp.packages.${pkgs.system}.default
     hexxy
     hledger # plain-text accounting
     hledger-ui

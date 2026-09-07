@@ -9,6 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cellar.url = "github:VirtusLab/cellar";
+    omp.url = "github:can1357/oh-my-pi";
   };
 
   outputs =
@@ -16,6 +17,7 @@
       nixpkgs,
       home-manager,
       cellar,
+      omp,
       ...
     }:
     let
@@ -27,7 +29,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./common.nix module ];
-          extraSpecialArgs = { inherit cellar myLib; };
+          extraSpecialArgs = { inherit cellar myLib omp; };
         };
     in
     {
