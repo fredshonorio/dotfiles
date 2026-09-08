@@ -47,6 +47,7 @@ with myLib;
     cellar.packages.${pkgs.system}.default
     hexxy
     hledger # plain-text accounting
+    hledger-ui
     serie # git commit graph
     glow # markdown on the terminal
     mysql-shell # mysqlsh 8.4 - upgrade checker + parallel dump/load
@@ -178,6 +179,7 @@ with myLib;
     FZF_CTRL_T_OPTS = "--preview 'bat --color=always --line-range :50 {}'";
     LC_ALL = "C.UTF-8"; # https://github.com/nix-community/home-manager/issues/3711
     AWS_VAULT_BACKEND = "file";
+    LEDGER_FILE = "/home/fred/projects/accounting/main.journal";
   };
 
   # remember this is only set when xorg starts
