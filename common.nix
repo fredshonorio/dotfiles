@@ -46,6 +46,7 @@ with myLib;
     gitu
     cellar.packages.${pkgs.system}.default
     hexxy
+    hledger # plain-text accounting
     serie # git commit graph
     glow # markdown on the terminal
     mysql-shell # mysqlsh 8.4 - upgrade checker + parallel dump/load
