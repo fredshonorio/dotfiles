@@ -5,6 +5,7 @@
   myLib,
   cellar,
   omp,
+  pkgs-unstable,
   ...
 }:
 
@@ -47,6 +48,7 @@ with myLib;
     gitu
     cellar.packages.${pkgs.system}.default
     omp.packages.${pkgs.system}.default
+    pkgs-unstable.pi-coding-agent
     hexxy
     hledger # plain-text accounting
     hledger-ui
