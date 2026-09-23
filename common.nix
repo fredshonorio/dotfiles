@@ -55,6 +55,9 @@ with myLib;
     serie # git commit graph
     glow # markdown on the terminal
     mysql-shell # mysqlsh 8.4 - upgrade checker + parallel dump/load
+    vial # GUI for configuring QMK/Vial keyboard firmware
+    dejavu_fonts # fallback font for nix-built Qt/GTK apps (e.g. vial) that can't find a usable font
+    noto-fonts
     (import ./pkgs/filessh.nix { inherit pkgs; })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -291,6 +294,11 @@ with myLib;
   programs.oh-my-posh.settings = builtins.fromJSON (
     builtins.unsafeDiscardStringContext (builtins.readFile files/emodipt-extend-fred.omp.json)
   );
+
+  # without this, Qt/GTK apps built by nix (e.g. vial) can't find any usable font and
+  # render blank/invisible text (Qt logs "Point size <= 0" - it computed a negative
+  # size from a missing font)
+  fonts.fontconfig.enable = true;
 
   programs.zoxide.enable = true;
 
