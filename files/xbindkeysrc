@@ -7,3 +7,11 @@
 "playerctl play-pause"
     m:0x12 + c:66
     Mod2 + Caps_Lock
+
+# F13/F14 control Feishin volume via MPRIS
+
+"playerctl -p Feishin volume 0.05-"
+    m:0x0 + c:191
+
+"playerctl -p Feishin volume 0.05+"
+    m:0x0 + c:192
