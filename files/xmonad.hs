@@ -154,6 +154,7 @@ startup =
     spawnHere ("feh --randomize --bg-fill " ++ wallpapers) -- load random wallpaper
     spawn startPolybar
     spawn "dunst"
+    spawn "xfce4-volumed-pulse"
 
 -- transparency for inactive windows
 transparencyHook = fadeInactiveLogHook 0.97 -- percent
