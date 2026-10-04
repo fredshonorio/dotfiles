@@ -33,32 +33,6 @@ local config = {
     }},
     mouse_bindings = {{
         event = {
-            Down = {
-                streak = 1,
-                button = {
-                    WheelUp = 1
-                }
-            }
-        },
-        mods = 'CTRL',
-        action = wezterm.action.SendKey {
-            key = 'PageUp'
-        }
-    }, {
-        event = {
-            Down = {
-                streak = 1,
-                button = {
-                    WheelDown = 1
-                }
-            }
-        },
-        mods = 'CTRL',
-        action = wezterm.action.SendKey {
-            key = 'PageDown'
-        }
-    }, {
-        event = {
             Up = {
                 streak = 1,
                 button = 'Left'
