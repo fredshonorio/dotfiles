@@ -15,3 +15,13 @@
 
 "playerctl -p Feishin volume 0.05+"
     m:0x0 + c:192
+
+# meh+M and F15 toggle equibop mic
+
+"equibop --toggle-mic"
+    m:0xd + c:58
+    Control+Shift+Alt + m
+
+"equibop --toggle-mic"
+    m:0x0 + c:193
+    F15
