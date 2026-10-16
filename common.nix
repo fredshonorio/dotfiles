@@ -111,7 +111,12 @@ with myLib;
           [ "thermal-zone = 0" ]
           [ (if config.polybar-hwmonPath != null then "hwmon-path = ${config.polybar-hwmonPath}" else "thermal-zone = 0") ]
           (builtins.readFile files/polybar/config.ini);
-      ".bin/polybar.sh".source = files/polybar/polybar.sh;
+      ".bin/polybar.sh" = {
+        text = lib.replaceStrings [ "@snixembed@" ] [ "${pkgs.snixembed}/bin/snixembed" ] (
+          builtins.readFile files/polybar/polybar.sh
+        );
+        executable = true;
+      };
       ".bin/dnd.sh".source = files/polybar/dnd.sh;
       ".bin/toggle-dnd.sh".source = files/polybar/toggle-dnd.sh;
 
