@@ -22,6 +22,8 @@ local opts = {
 local config = {
     font = wezterm.font("MesloLGS NF"),
     font_size = 12.0,
+    -- WebGpu instead of OpenGL: the OpenGL/EGL path segfaulted in libnvidia-eglcore (driver 610.57.04)
+    front_end = "WebGpu",
     exit_behavior = "Close",
     check_for_updates = false,
     enable_tab_bar = true,
